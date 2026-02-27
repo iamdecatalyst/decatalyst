@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { skillCategories } from '../../data/skills';
-import SectionWrapper from '../layout/SectionWrapper';
+
 import { cn } from '../../lib/utils';
 
 export default function Skills() {
@@ -9,7 +9,7 @@ export default function Skills() {
   const current = skillCategories.find((c) => c.id === activeCategory)!;
 
   return (
-    <SectionWrapper id="skills">
+    <div className="py-24 lg:py-32">
       <div className="mb-12">
         <h2 className="font-mono font-bold text-2xl tracking-wider uppercase text-white mb-2">
           Systems & Tools
@@ -48,7 +48,7 @@ export default function Skills() {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: i * 0.04, duration: 0.3 }}
-              className="neu-badge justify-center py-3 px-4 text-sm cursor-default hover:text-white hover:-translate-y-0.5 transition-all duration-200"
+              className="neu-badge neu-badge-3d justify-center py-3 px-4 text-sm cursor-default hover:text-white transition-all duration-200"
             >
               {skill.name}
             </motion.div>
@@ -69,13 +69,13 @@ export default function Skills() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.1, duration: 0.5 }}
-            className="neu-card-flat p-5"
+            className="neu-card-flat neu-card-3d p-5"
           >
             <p className="font-mono font-bold text-copper text-lg mb-1">{item.lang}</p>
             <p className="text-neutral-500 text-xs">{item.desc}</p>
           </motion.div>
         ))}
       </div>
-    </SectionWrapper>
+    </div>
   );
 }

@@ -1,10 +1,10 @@
 import { motion } from 'framer-motion';
 import { experience } from '../../data/experience';
-import SectionWrapper from '../layout/SectionWrapper';
+
 
 export default function Experience() {
   return (
-    <SectionWrapper id="experience">
+    <div className="py-24 lg:py-32">
       <div className="mb-12">
         <h2 className="font-mono font-bold text-2xl tracking-wider uppercase text-white mb-2">
           Timeline
@@ -40,7 +40,7 @@ export default function Experience() {
               }`}
             />
 
-            <div className="neu-card-flat p-6">
+            <div className="neu-card-flat neu-card-3d p-6">
               <span className="font-mono text-copper text-sm font-medium">
                 {entry.year}
               </span>
@@ -57,6 +57,6 @@ export default function Experience() {
           </motion.div>
         ))}
       </div>
-    </SectionWrapper>
+    </div>
   );
 }

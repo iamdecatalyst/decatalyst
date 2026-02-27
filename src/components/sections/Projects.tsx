@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { projects, type Project } from '../../data/projects';
-import SectionWrapper from '../layout/SectionWrapper';
+
 import { cn } from '../../lib/utils';
 import { ExternalLink, Github, X } from 'lucide-react';
 
@@ -24,7 +24,7 @@ function ProjectCard({ project, onClick }: { project: Project; onClick: () => vo
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, scale: 0.95 }}
-      className="neu-card p-6 cursor-pointer group"
+      className="neu-card neu-card-3d p-6 cursor-pointer group"
     >
       <div
         className="h-1 w-12 rounded-full mb-4"
@@ -166,7 +166,7 @@ export default function Projects() {
     : projects.filter((p) => p.category === filter);
 
   return (
-    <SectionWrapper id="projects">
+    <div className="py-24 lg:py-32">
       <div className="mb-12">
         <h2 className="font-mono font-bold text-2xl tracking-wider uppercase text-white mb-2">
           The Ecosystem
@@ -211,6 +211,6 @@ export default function Projects() {
           />
         )}
       </AnimatePresence>
-    </SectionWrapper>
+    </div>
   );
 }

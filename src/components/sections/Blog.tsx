@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import SectionWrapper from '../layout/SectionWrapper';
+
 
 const transmissions = [
   {
@@ -24,7 +24,7 @@ const transmissions = [
 
 export default function Blog() {
   return (
-    <SectionWrapper id="transmissions">
+    <div className="py-24 lg:py-32">
       <div className="mb-12">
         <h2 className="font-mono font-bold text-2xl tracking-wider uppercase text-white mb-2">
           Transmissions
@@ -42,7 +42,7 @@ export default function Blog() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.1, duration: 0.5 }}
-            className="neu-card p-6 group"
+            className="neu-card neu-card-3d p-6 group"
           >
             <div className="h-1 w-8 rounded-full bg-copper mb-4" />
             <span className="font-mono text-xs text-neutral-600">{post.date}</span>
@@ -55,6 +55,6 @@ export default function Blog() {
           </motion.article>
         ))}
       </div>
-    </SectionWrapper>
+    </div>
   );
 }

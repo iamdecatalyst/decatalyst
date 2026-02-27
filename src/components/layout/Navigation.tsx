@@ -2,15 +2,13 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { cn } from '../../lib/utils';
+import { SECTIONS } from '../../lib/spaceConfig';
 
-const navItems = [
-  { id: 'about', label: 'About' },
-  { id: 'skills', label: 'Skills' },
-  { id: 'projects', label: 'Projects' },
-  { id: 'experience', label: 'Experience' },
-  { id: 'transmissions', label: 'Transmissions' },
-  { id: 'contact', label: 'Contact' },
-];
+const navItems = SECTIONS.slice(1).map((s) => ({
+  id: s.id,
+  label: s.label === 'Signal Tower' ? 'Transmissions' : s.id.charAt(0).toUpperCase() + s.id.slice(1),
+  accent: s.accent,
+}));
 
 export default function Navigation() {
   const [scrolled, setScrolled] = useState(false);
@@ -40,7 +38,12 @@ export default function Navigation() {
   }, []);
 
   const scrollTo = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    const el = document.getElementById(id);
+    if (el) {
+      const rect = el.getBoundingClientRect();
+      const scrollTop = window.scrollY + rect.top;
+      window.scrollTo({ top: scrollTop, behavior: 'smooth' });
+    }
     setMobileOpen(false);
   };
 
@@ -85,6 +88,40 @@ export default function Navigation() {
           </button>
         </div>
       </motion.nav>
+
+      {/* Planet dot indicators — right side vertical */}
+      <div className="fixed right-4 top-1/2 -translate-y-1/2 z-40 hidden lg:flex flex-col gap-3">
+        {SECTIONS.map((s, i) => (
+          <button
+            key={s.id}
+            onClick={() => {
+              if (i === 0) {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              } else {
+                scrollTo(s.id);
+              }
+            }}
+            className="group relative flex items-center justify-end"
+            title={s.label}
+          >
+            <span className="absolute right-6 opacity-0 group-hover:opacity-100 transition-opacity text-xs font-mono text-neutral-400 whitespace-nowrap">
+              {s.label}
+            </span>
+            <div
+              className={cn(
+                'w-2.5 h-2.5 rounded-full transition-all duration-300',
+                active === s.id || (i === 0 && active === '')
+                  ? 'scale-125'
+                  : 'scale-100 opacity-40 hover:opacity-80'
+              )}
+              style={{
+                background: active === s.id || (i === 0 && active === '') ? s.accent : '#666',
+                boxShadow: active === s.id || (i === 0 && active === '') ? `0 0 8px ${s.accent}` : 'none',
+              }}
+            />
+          </button>
+        ))}
+      </div>
 
       {/* Mobile menu */}
       <AnimatePresence>

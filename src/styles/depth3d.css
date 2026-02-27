@@ -1,0 +1,76 @@
+/* 3D Depth System — adds translateZ and perspective-based hover effects */
+
+/* Cards lift off the page on hover */
+.neu-card-3d {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease;
+  will-change: transform;
+}
+
+.neu-card-3d:hover {
+  transform: translateZ(20px) translateY(-4px);
+  box-shadow:
+    6px 6px 16px rgba(0, 0, 0, 0.7),
+    -3px -3px 12px rgba(40, 40, 40, 0.12),
+    0 0 30px rgba(0, 47, 167, 0.06);
+}
+
+/* Badges pop forward on hover */
+.neu-badge-3d {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+.neu-badge-3d:hover {
+  transform: translateZ(10px) scale(1.05);
+}
+
+/* Buttons press depth */
+.neu-button-3d {
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease;
+  will-change: transform;
+}
+
+.neu-button-3d:hover {
+  transform: translateZ(12px) translateY(-2px);
+}
+
+.neu-button-3d:active {
+  transform: translateZ(-4px) translateY(1px);
+}
+
+/* Materialize — content appears to emerge from depth */
+@keyframes materialize {
+  from {
+    opacity: 0;
+    transform: translateZ(-50px) scale(0.95);
+    filter: blur(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateZ(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+.animate-materialize {
+  animation: materialize 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Staggered materialize for child elements */
+.materialize-stagger > * {
+  opacity: 0;
+  animation: materialize 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.materialize-stagger > *:nth-child(1) { animation-delay: 0.1s; }
+.materialize-stagger > *:nth-child(2) { animation-delay: 0.2s; }
+.materialize-stagger > *:nth-child(3) { animation-delay: 0.3s; }
+.materialize-stagger > *:nth-child(4) { animation-delay: 0.4s; }
+.materialize-stagger > *:nth-child(5) { animation-delay: 0.5s; }
+.materialize-stagger > *:nth-child(6) { animation-delay: 0.6s; }
+
+/* Perspective container for child 3D transforms */
+.perspective-container {
+  perspective: 1200px;
+  transform-style: preserve-3d;
+}

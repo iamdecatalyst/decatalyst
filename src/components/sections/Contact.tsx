@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { socials } from '../../data/socials';
-import SectionWrapper from '../layout/SectionWrapper';
+
 import {
   Github,
   Twitter,
@@ -22,7 +22,7 @@ const iconMap: Record<string, LucideIcon> = {
 
 export default function Contact() {
   return (
-    <SectionWrapper id="contact" className="relative">
+    <div className="py-24 lg:py-32 relative">
       <div className="text-center max-w-xl mx-auto">
         <h2 className="font-mono font-bold text-2xl tracking-wider uppercase text-white mb-2">
           Establish Connection
@@ -47,7 +47,7 @@ export default function Contact() {
                 transition={{ delay: i * 0.08, type: 'spring', stiffness: 200 }}
                 whileHover={{ y: -4, scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="w-14 h-14 neu-card-flat flex items-center justify-center text-neutral-500 hover:text-white hover:shadow-[0_0_20px_rgba(0,47,167,0.15)] transition-all duration-200 rounded-2xl"
+                className="w-14 h-14 neu-card-flat neu-card-3d flex items-center justify-center text-neutral-500 hover:text-white hover:shadow-[0_0_20px_rgba(0,47,167,0.15)] transition-all duration-200 rounded-2xl"
                 title={social.label}
               >
                 {Icon && <Icon size={20} />}
@@ -61,7 +61,7 @@ export default function Contact() {
           href="mailto:robert5560newton@gmail.com"
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
-          className="inline-flex items-center gap-2 px-8 py-3.5 bg-white text-neu-base font-mono font-semibold text-sm tracking-wider uppercase rounded-2xl shadow-[3px_3px_6px_rgba(0,0,0,0.6),-3px_-3px_6px_rgba(40,40,40,0.12),0_0_20px_rgba(255,255,255,0.08)] hover:shadow-[3px_3px_6px_rgba(0,0,0,0.6),-3px_-3px_6px_rgba(40,40,40,0.12),0_0_30px_rgba(255,255,255,0.12)] transition-shadow"
+          className="inline-flex items-center gap-2 px-8 py-3.5 bg-white text-neu-base font-mono font-semibold text-sm tracking-wider uppercase rounded-2xl neu-button-3d shadow-[3px_3px_6px_rgba(0,0,0,0.6),-3px_-3px_6px_rgba(40,40,40,0.12),0_0_20px_rgba(255,255,255,0.08)] hover:shadow-[3px_3px_6px_rgba(0,0,0,0.6),-3px_-3px_6px_rgba(40,40,40,0.12),0_0_30px_rgba(255,255,255,0.12)] transition-shadow"
         >
           <Mail size={16} />
           Get in Touch
@@ -71,6 +71,6 @@ export default function Contact() {
           "Ad astra per aspera"
         </p>
       </div>
-    </SectionWrapper>
+    </div>
   );
 }

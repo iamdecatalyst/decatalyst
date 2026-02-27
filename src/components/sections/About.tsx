@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import SectionWrapper from '../layout/SectionWrapper';
+
 
 const terminalLines = [
   { type: 'prompt', text: '$ whoami' },
@@ -90,7 +90,7 @@ export default function About() {
   }, [started, visibleLines]);
 
   return (
-    <SectionWrapper id="about">
+    <div className="py-24 lg:py-32">
       <div ref={sectionRef} className="grid lg:grid-cols-2 gap-12 items-start">
         {/* Terminal card */}
         <motion.div
@@ -98,7 +98,7 @@ export default function About() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          className="neu-card-inset p-6 sm:p-8"
+          className="neu-card-inset neu-card-3d p-6 sm:p-8"
         >
           <div className="flex items-center gap-2 mb-4">
             <div className="w-3 h-3 rounded-full bg-red-500/60" />
@@ -151,7 +151,7 @@ export default function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.2 + i * 0.1, duration: 0.5 }}
-                className="neu-card-flat p-5"
+                className="neu-card-flat neu-card-3d p-5"
               >
                 <AnimatedCounter target={stat.value} suffix={stat.suffix} />
                 <p className="text-neutral-500 text-xs font-mono uppercase tracking-wider mt-2">
@@ -162,6 +162,6 @@ export default function About() {
           </div>
         </div>
       </div>
-    </SectionWrapper>
+    </div>
   );
 }
