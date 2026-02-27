@@ -1,15 +1,11 @@
 import { useEffect, useCallback, useSyncExternalStore } from 'react';
-import { SECTIONS, SECTION_COUNT, WARP_ZONE, CAMERA_START_Z } from '../lib/spaceConfig';
+import { SECTION_COUNT } from '../lib/spaceConfig';
 
 // Module-level state — avoids React re-renders in the Three.js render loop
 export const spaceState = {
   scrollProgress: 0,      // 0-1 across entire page
   currentSection: 0,      // index of current/nearest section
   sectionProgress: 0,     // 0-1 within current section
-  isWarping: false,        // true during warp zones
-  warpIntensity: 0,        // 0-1, how deep in warp
-  cameraZ: CAMERA_START_Z, // current camera Z target
-  landedOpacity: 1,        // content opacity (0 during warp, 1 when landed)
   mouseX: 0,
   mouseY: 0,
 };
@@ -31,44 +27,9 @@ function computeState() {
   const scrollProgress = Math.min(1, Math.max(0, scrollTop / docHeight));
   spaceState.scrollProgress = scrollProgress;
 
-  // Map scroll to section index and local progress
-  const totalSections = SECTION_COUNT;
-  const rawSection = scrollProgress * (totalSections - 1);
-  const currentSection = Math.round(rawSection);
-  const sectionProgress = rawSection - Math.floor(rawSection);
-
-  spaceState.currentSection = Math.min(currentSection, totalSections - 1);
-  spaceState.sectionProgress = sectionProgress;
-
-  // Determine warp state
-  // Warping happens when transitioning between sections
-  const fractional = rawSection - Math.floor(rawSection);
-  const isInDepartureZone = fractional > (1 - WARP_ZONE) && currentSection < totalSections - 1;
-  const isInArrivalZone = fractional < WARP_ZONE && fractional > 0;
-  const isWarping = isInDepartureZone || isInArrivalZone;
-
-  spaceState.isWarping = isWarping;
-
-  if (isInDepartureZone) {
-    spaceState.warpIntensity = (fractional - (1 - WARP_ZONE)) / WARP_ZONE;
-  } else if (isInArrivalZone) {
-    spaceState.warpIntensity = 1 - fractional / WARP_ZONE;
-  } else {
-    spaceState.warpIntensity = 0;
-  }
-
-  // Camera Z interpolation
-  const sectionA = Math.floor(rawSection);
-  const sectionB = Math.min(sectionA + 1, totalSections - 1);
-  const zA = SECTIONS[sectionA].zDepth;
-  const zB = SECTIONS[sectionB].zDepth;
-  const t = rawSection - sectionA;
-  // Smooth interpolation
-  const smoothT = t * t * (3 - 2 * t);
-  spaceState.cameraZ = CAMERA_START_Z + (zA + (zB - zA) * smoothT);
-
-  // Content opacity: fully visible when not warping, fades during warp
-  spaceState.landedOpacity = 1 - spaceState.warpIntensity;
+  const rawSection = scrollProgress * (SECTION_COUNT - 1);
+  spaceState.currentSection = Math.min(Math.round(rawSection), SECTION_COUNT - 1);
+  spaceState.sectionProgress = rawSection - Math.floor(rawSection);
 
   notifyListeners();
 }

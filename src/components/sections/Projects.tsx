@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { projects, type Project } from '../../data/projects';
-
+import Card3D from '../ui/Card3D';
 import { cn } from '../../lib/utils';
 import { ExternalLink, Github, X } from 'lucide-react';
 
@@ -17,45 +17,47 @@ const categories = [
 
 function ProjectCard({ project, onClick }: { project: Project; onClick: () => void }) {
   return (
-    <motion.div
-      layout
-      layoutId={project.id}
-      onClick={onClick}
-      initial={{ opacity: 0, y: 30 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, scale: 0.95 }}
-      className="neu-card neu-card-3d p-6 cursor-pointer group"
-    >
-      <div
-        className="h-1 w-12 rounded-full mb-4"
-        style={{ background: project.accent }}
-      />
-      <div className="flex items-center gap-2 mb-2">
-        <h3 className="font-mono font-bold text-lg tracking-wider uppercase text-white">
-          {project.codename || project.name}
-        </h3>
+    <Card3D>
+      <motion.div
+        layout
+        layoutId={project.id}
+        onClick={onClick}
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, scale: 0.95 }}
+        className="neu-card p-6 cursor-pointer group border border-white/[0.06] hover:border-white/[0.1] transition-all duration-300 h-full"
+      >
         <div
-          className={cn(
-            'neu-status-dot',
-            project.status === 'live' && 'online',
-            project.status === 'building' && 'building'
-          )}
+          className="h-1 w-12 rounded-full mb-4"
+          style={{ background: project.accent }}
         />
-      </div>
-      <p className="text-neutral-400 text-sm mb-4 line-clamp-2">
-        {project.tagline}
-      </p>
-      <div className="flex flex-wrap gap-1.5">
-        {project.stack.slice(0, 4).map((tech) => (
-          <span key={tech} className="neu-badge text-xs">
-            {tech}
-          </span>
-        ))}
-        {project.stack.length > 4 && (
-          <span className="neu-badge text-xs">+{project.stack.length - 4}</span>
-        )}
-      </div>
-    </motion.div>
+        <div className="flex items-center gap-2 mb-2">
+          <h3 className="font-mono font-bold text-lg tracking-wider uppercase text-white">
+            {project.codename || project.name}
+          </h3>
+          <div
+            className={cn(
+              'neu-status-dot',
+              project.status === 'live' && 'online',
+              project.status === 'building' && 'building'
+            )}
+          />
+        </div>
+        <p className="text-neutral-400 text-sm mb-4 line-clamp-2">
+          {project.tagline}
+        </p>
+        <div className="flex flex-wrap gap-1.5">
+          {project.stack.slice(0, 4).map((tech) => (
+            <span key={tech} className="neu-badge text-xs">
+              {tech}
+            </span>
+          ))}
+          {project.stack.length > 4 && (
+            <span className="neu-badge text-xs">+{project.stack.length - 4}</span>
+          )}
+        </div>
+      </motion.div>
+    </Card3D>
   );
 }
 
@@ -71,7 +73,7 @@ function ProjectDetail({ project, onClose }: { project: Project; onClose: () => 
       <motion.div
         layoutId={project.id}
         onClick={(e) => e.stopPropagation()}
-        className="neu-card p-8 max-w-2xl w-full max-h-[80vh] overflow-y-auto"
+        className="neu-card p-8 max-w-2xl w-full max-h-[80vh] overflow-y-auto border border-white/[0.06]"
       >
         <div className="flex items-start justify-between mb-6">
           <div>
@@ -100,7 +102,6 @@ function ProjectDetail({ project, onClose }: { project: Project; onClose: () => 
           {project.description}
         </p>
 
-        {/* Highlights */}
         <div className="mb-6">
           <p className="font-mono text-xs uppercase tracking-wider text-neutral-500 mb-3">
             Highlights
@@ -115,7 +116,6 @@ function ProjectDetail({ project, onClose }: { project: Project; onClose: () => 
           </div>
         </div>
 
-        {/* Stack */}
         <div className="mb-6">
           <p className="font-mono text-xs uppercase tracking-wider text-neutral-500 mb-3">
             Stack
@@ -129,7 +129,6 @@ function ProjectDetail({ project, onClose }: { project: Project; onClose: () => 
           </div>
         </div>
 
-        {/* Links */}
         <div className="flex gap-3">
           {project.url && (
             <a
@@ -166,8 +165,11 @@ export default function Projects() {
     : projects.filter((p) => p.category === filter);
 
   return (
-    <div className="py-24 lg:py-32">
-      <div className="mb-12">
+    <div>
+      <div className="mb-8">
+        <div className="font-mono text-sm text-neutral-600 mb-4">
+          <span className="text-green-400">$</span> tree ~/projects/
+        </div>
         <h2 className="font-mono font-bold text-2xl tracking-wider uppercase text-white mb-2">
           The Ecosystem
         </h2>
@@ -177,12 +179,17 @@ export default function Projects() {
       </div>
 
       {/* Filter pills */}
-      <div className="flex flex-wrap gap-2 mb-10">
+      <div className="flex flex-wrap gap-2 mb-8 font-mono text-xs">
         {categories.map((cat) => (
           <button
             key={cat.id}
             onClick={() => setFilter(cat.id)}
-            className={cn('neu-nav-item', filter === cat.id && 'active')}
+            className={cn(
+              'px-3 py-1.5 rounded transition-all duration-200',
+              filter === cat.id
+                ? 'text-green-400 bg-white/[0.06]'
+                : 'text-neutral-500 hover:text-neutral-300 hover:bg-white/[0.03]'
+            )}
           >
             {cat.label}
           </button>

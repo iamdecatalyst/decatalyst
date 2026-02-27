@@ -2,7 +2,7 @@ import { lazy, Suspense } from 'react';
 import Navigation from './components/layout/Navigation';
 import ScrollProgress from './components/layout/ScrollProgress';
 import Footer from './components/layout/Footer';
-import PlanetSection from './components/layout/PlanetSection';
+import TerminalSection from './components/layout/TerminalSection';
 import Hero from './components/sections/Hero';
 import About from './components/sections/About';
 import Skills from './components/sections/Skills';
@@ -11,41 +11,40 @@ import Experience from './components/sections/Experience';
 import Blog from './components/sections/Blog';
 import Contact from './components/sections/Contact';
 
-const SpaceCanvas = lazy(() => import('./components/three/SpaceCanvas'));
+const DevCanvas = lazy(() => import('./components/three/DevCanvas'));
 
 export default function App() {
   return (
     <>
-      {/* Persistent full-page Three.js canvas */}
       <Suspense fallback={<div className="fixed inset-0 z-0 bg-neu-base" />}>
-        <SpaceCanvas />
+        <DevCanvas />
       </Suspense>
 
       <ScrollProgress />
       <Navigation />
 
       <main className="relative z-10">
-        <PlanetSection planetIndex={0} id="hero">
+        <TerminalSection id="hero">
           <Hero />
-        </PlanetSection>
-        <PlanetSection planetIndex={1} id="about">
+        </TerminalSection>
+        <TerminalSection id="about">
           <About />
-        </PlanetSection>
-        <PlanetSection planetIndex={2} id="skills">
+        </TerminalSection>
+        <TerminalSection id="skills">
           <Skills />
-        </PlanetSection>
-        <PlanetSection planetIndex={3} id="projects">
+        </TerminalSection>
+        <TerminalSection id="projects">
           <Projects />
-        </PlanetSection>
-        <PlanetSection planetIndex={4} id="experience">
+        </TerminalSection>
+        <TerminalSection id="experience">
           <Experience />
-        </PlanetSection>
-        <PlanetSection planetIndex={5} id="transmissions">
+        </TerminalSection>
+        <TerminalSection id="transmissions">
           <Blog />
-        </PlanetSection>
-        <PlanetSection planetIndex={6} id="contact">
+        </TerminalSection>
+        <TerminalSection id="contact">
           <Contact />
-        </PlanetSection>
+        </TerminalSection>
       </main>
       <Footer />
     </>

@@ -4,10 +4,10 @@ import { Menu, X } from 'lucide-react';
 import { cn } from '../../lib/utils';
 import { SECTIONS } from '../../lib/spaceConfig';
 
-const navItems = SECTIONS.slice(1).map((s) => ({
+const navItems = SECTIONS.slice(1).map((s, i) => ({
   id: s.id,
-  label: s.label === 'Signal Tower' ? 'Transmissions' : s.id.charAt(0).toUpperCase() + s.id.slice(1),
-  accent: s.accent,
+  label: s.label,
+  index: i,
 }));
 
 export default function Navigation() {
@@ -55,26 +55,31 @@ export default function Navigation() {
         transition={{ duration: 0.6, delay: 0.5 }}
         className={cn(
           'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
-          scrolled ? 'bg-neu-base/90 backdrop-blur-xl shadow-lg' : 'bg-transparent'
+          scrolled ? 'bg-neu-base/95 backdrop-blur-xl border-b border-white/[0.04]' : 'bg-transparent'
         )}
       >
-        <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-6 h-12 flex items-center justify-between">
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="font-mono font-bold text-lg tracking-widest text-white hover:text-copper transition-colors"
+            className="font-mono text-sm text-green-400 hover:text-green-300 transition-colors"
           >
-            DC
+            <span className="text-neutral-600">[</span>isaac<span className="text-neutral-600">@</span>vylth<span className="text-neutral-600">]</span>
           </button>
 
-          {/* Desktop nav */}
-          <div className="hidden md:flex items-center gap-1">
+          {/* Desktop tmux-style tabs */}
+          <div className="hidden md:flex items-center gap-0.5 font-mono text-xs">
             {navItems.map((item) => (
               <button
                 key={item.id}
                 onClick={() => scrollTo(item.id)}
-                className={cn('neu-nav-item', active === item.id && 'active')}
+                className={cn(
+                  'px-3 py-1.5 transition-all duration-200 rounded',
+                  active === item.id
+                    ? 'text-green-400 bg-white/[0.05]'
+                    : 'text-neutral-500 hover:text-neutral-300 hover:bg-white/[0.03]'
+                )}
               >
-                {item.label}
+                <span className="text-neutral-600">{item.index}:</span>{item.label.toLowerCase()}
               </button>
             ))}
           </div>
@@ -82,46 +87,12 @@ export default function Navigation() {
           {/* Mobile toggle */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="md:hidden w-10 h-10 flex items-center justify-center text-white"
+            className="md:hidden w-10 h-10 flex items-center justify-center text-neutral-400"
           >
-            {mobileOpen ? <X size={20} /> : <Menu size={20} />}
+            {mobileOpen ? <X size={18} /> : <Menu size={18} />}
           </button>
         </div>
       </motion.nav>
-
-      {/* Planet dot indicators — right side vertical */}
-      <div className="fixed right-4 top-1/2 -translate-y-1/2 z-40 hidden lg:flex flex-col gap-3">
-        {SECTIONS.map((s, i) => (
-          <button
-            key={s.id}
-            onClick={() => {
-              if (i === 0) {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-              } else {
-                scrollTo(s.id);
-              }
-            }}
-            className="group relative flex items-center justify-end"
-            title={s.label}
-          >
-            <span className="absolute right-6 opacity-0 group-hover:opacity-100 transition-opacity text-xs font-mono text-neutral-400 whitespace-nowrap">
-              {s.label}
-            </span>
-            <div
-              className={cn(
-                'w-2.5 h-2.5 rounded-full transition-all duration-300',
-                active === s.id || (i === 0 && active === '')
-                  ? 'scale-125'
-                  : 'scale-100 opacity-40 hover:opacity-80'
-              )}
-              style={{
-                background: active === s.id || (i === 0 && active === '') ? s.accent : '#666',
-                boxShadow: active === s.id || (i === 0 && active === '') ? `0 0 8px ${s.accent}` : 'none',
-              }}
-            />
-          </button>
-        ))}
-      </div>
 
       {/* Mobile menu */}
       <AnimatePresence>
@@ -141,11 +112,12 @@ export default function Navigation() {
                 transition={{ delay: i * 0.05 }}
                 onClick={() => scrollTo(item.id)}
                 className={cn(
-                  'text-2xl font-mono font-medium tracking-wider',
-                  active === item.id ? 'text-white' : 'text-neutral-500 hover:text-white'
+                  'font-mono text-lg tracking-wider',
+                  active === item.id ? 'text-green-400' : 'text-neutral-500 hover:text-white'
                 )}
               >
-                {item.label}
+                <span className="text-neutral-600 mr-2">{item.index}:</span>
+                {item.label.toLowerCase()}
               </motion.button>
             ))}
           </motion.div>

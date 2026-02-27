@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { skillCategories } from '../../data/skills';
-
+import TerminalWindow from '../ui/TerminalWindow';
 import { cn } from '../../lib/utils';
 
 export default function Skills() {
@@ -9,73 +9,80 @@ export default function Skills() {
   const current = skillCategories.find((c) => c.id === activeCategory)!;
 
   return (
-    <div className="py-24 lg:py-32">
-      <div className="mb-12">
-        <h2 className="font-mono font-bold text-2xl tracking-wider uppercase text-white mb-2">
-          Systems & Tools
-        </h2>
-        <p className="text-neutral-500 text-sm">
-          The instruments of construction.
-        </p>
-      </div>
+    <div>
+      <TerminalWindow title="ls -la ~/skills/">
+        {/* Category tabs as directory listing */}
+        <div className="font-mono text-sm mb-6">
+          <div className="text-neutral-600 mb-2">drwxr-xr-x  4 isaac vylth  4096 Feb 27 00:00 .</div>
+          <div className="flex flex-wrap gap-2">
+            {skillCategories.map((cat) => (
+              <button
+                key={cat.id}
+                onClick={() => setActiveCategory(cat.id)}
+                className={cn(
+                  'px-3 py-1 rounded font-mono text-xs transition-all duration-200',
+                  activeCategory === cat.id
+                    ? 'text-green-400 bg-white/[0.06]'
+                    : 'text-neutral-500 hover:text-neutral-300 hover:bg-white/[0.03]'
+                )}
+              >
+                <span className="text-copper">d</span> {cat.label.toLowerCase()}/
+              </button>
+            ))}
+          </div>
+        </div>
 
-      {/* Category tabs */}
-      <div className="flex flex-wrap gap-2 mb-10">
-        {skillCategories.map((cat) => (
-          <button
-            key={cat.id}
-            onClick={() => setActiveCategory(cat.id)}
-            className={cn('neu-nav-item', activeCategory === cat.id && 'active')}
-          >
-            {cat.label}
-          </button>
-        ))}
-      </div>
-
-      {/* Skills grid */}
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={activeCategory}
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -10 }}
-          transition={{ duration: 0.3 }}
-          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3"
-        >
-          {current.skills.map((skill, i) => (
-            <motion.div
-              key={skill.name}
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: i * 0.04, duration: 0.3 }}
-              className="neu-badge neu-badge-3d justify-center py-3 px-4 text-sm cursor-default hover:text-white transition-all duration-200"
-            >
-              {skill.name}
-            </motion.div>
-          ))}
-        </motion.div>
-      </AnimatePresence>
-
-      {/* Language breakdown */}
-      <div className="mt-12 grid sm:grid-cols-3 gap-4">
-        {[
-          { lang: 'Go', desc: 'Primary backend, APIs, microservices' },
-          { lang: 'Python', desc: 'Trading engines, data services, ML' },
-          { lang: 'Rust', desc: 'Cryptography, HD wallets, signing' },
-        ].map((item, i) => (
+        {/* Skills as file listing */}
+        <AnimatePresence mode="wait">
           <motion.div
-            key={item.lang}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: i * 0.1, duration: 0.5 }}
-            className="neu-card-flat neu-card-3d p-5"
+            key={activeCategory}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.3 }}
+            className="font-mono text-sm"
           >
-            <p className="font-mono font-bold text-copper text-lg mb-1">{item.lang}</p>
-            <p className="text-neutral-500 text-xs">{item.desc}</p>
+            <div className="text-neutral-600 text-xs mb-3">
+              total {current.skills.length} items
+            </div>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2">
+              {current.skills.map((skill, i) => (
+                <motion.div
+                  key={skill.name}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: i * 0.03, duration: 0.2 }}
+                  className="px-3 py-2 rounded bg-white/[0.03] border border-white/[0.04] text-neutral-400 hover:text-white hover:border-white/[0.08] transition-all duration-200 text-xs"
+                >
+                  {skill.name}
+                </motion.div>
+              ))}
+            </div>
           </motion.div>
-        ))}
-      </div>
+        </AnimatePresence>
+
+        {/* Language breakdown */}
+        <div className="mt-8 pt-6 border-t border-white/[0.04]">
+          <div className="text-neutral-600 font-mono text-xs mb-4">
+            <span className="text-green-400">$</span> cat primary_languages.conf
+          </div>
+          <div className="grid sm:grid-cols-3 gap-3">
+            {[
+              { lang: 'Go', desc: 'Primary backend, APIs, microservices' },
+              { lang: 'Python', desc: 'Trading engines, data services, ML' },
+              { lang: 'Rust', desc: 'Cryptography, HD wallets, signing' },
+            ].map((item) => (
+              <div
+                key={item.lang}
+                className="p-4 rounded-lg bg-white/[0.02] border border-white/[0.04]"
+              >
+                <p className="font-mono font-bold text-copper text-base mb-1">{item.lang}</p>
+                <p className="text-neutral-500 text-xs">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </TerminalWindow>
     </div>
   );
 }
