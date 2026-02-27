@@ -1,0 +1,151 @@
+/* ============================================================
+   DE CATALYST PORTFOLIO - NEUMORPHIC DESIGN SYSTEM
+   Adapted from VYLTH Flow neumorphic system
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+:root {
+  --neu-bg-base: #0d0d0d;
+  --neu-bg-card: #141414;
+  --neu-bg-input: #0a0a0a;
+  --neu-bg-elevated: #1a1a1a;
+  --neu-border: #1f1f1f;
+
+  --neu-text-primary: #ffffff;
+  --neu-text-secondary: #a0a0a0;
+  --neu-text-muted: #666666;
+
+  --neu-klein: #002FA7;
+  --neu-copper: #cd7f32;
+  --neu-rose: #e11d48;
+
+  --neu-shadow-raised:
+    6px 6px 12px rgba(0, 0, 0, 0.7),
+    -6px -6px 12px rgba(40, 40, 40, 0.15);
+  --neu-shadow-raised-sm:
+    3px 3px 6px rgba(0, 0, 0, 0.6),
+    -3px -3px 6px rgba(40, 40, 40, 0.12);
+  --neu-shadow-raised-lg:
+    8px 8px 16px rgba(0, 0, 0, 0.8),
+    -8px -8px 16px rgba(40, 40, 40, 0.18);
+  --neu-shadow-pressed:
+    inset 4px 4px 8px rgba(0, 0, 0, 0.7),
+    inset -4px -4px 8px rgba(40, 40, 40, 0.08);
+  --neu-shadow-pressed-sm:
+    inset 2px 2px 4px rgba(0, 0, 0, 0.6),
+    inset -2px -2px 4px rgba(40, 40, 40, 0.06);
+  --neu-shadow-glow: 0 0 20px rgba(255, 255, 255, 0.03);
+
+  --neu-radius-sm: 12px;
+  --neu-radius-md: 16px;
+  --neu-radius-lg: 20px;
+  --neu-radius-xl: 24px;
+
+  --neu-transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Card */
+.neu-card {
+  background: var(--neu-bg-card);
+  border-radius: var(--neu-radius-xl);
+  border: none;
+  box-shadow: var(--neu-shadow-raised), var(--neu-shadow-glow);
+  transition: var(--neu-transition);
+}
+.neu-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--neu-shadow-raised-lg), var(--neu-shadow-glow);
+}
+.neu-card-flat {
+  background: var(--neu-bg-card);
+  border-radius: var(--neu-radius-xl);
+  box-shadow: var(--neu-shadow-raised-sm);
+}
+.neu-card-inset {
+  background: var(--neu-bg-input);
+  border-radius: var(--neu-radius-lg);
+  box-shadow: var(--neu-shadow-pressed);
+}
+
+/* Badge */
+.neu-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 12px;
+  background: var(--neu-bg-input);
+  border-radius: 9999px;
+  box-shadow: var(--neu-shadow-pressed-sm);
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--neu-text-secondary);
+}
+
+/* Nav Item */
+.neu-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: transparent;
+  border: none;
+  border-radius: var(--neu-radius-md);
+  color: var(--neu-text-secondary);
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 500;
+  font-size: 0.8125rem;
+  cursor: pointer;
+  transition: var(--neu-transition);
+  letter-spacing: 0.5px;
+}
+.neu-nav-item:hover {
+  color: var(--neu-text-primary);
+  background: var(--neu-bg-card);
+  box-shadow: var(--neu-shadow-raised-sm);
+}
+.neu-nav-item.active {
+  color: #0d0d0d;
+  background: #ffffff;
+  box-shadow: var(--neu-shadow-raised-sm), 0 0 20px rgba(255, 255, 255, 0.08);
+}
+
+/* Status */
+.neu-status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--neu-text-muted);
+}
+.neu-status-dot.online {
+  background: #4ADE80;
+  box-shadow: 0 0 8px #4ADE80;
+}
+.neu-status-dot.building {
+  background: #F59E0B;
+  box-shadow: 0 0 8px #F59E0B;
+  animation: neu-pulse 1.5s infinite;
+}
+
+@keyframes neu-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .neu-card:hover,
+  .neu-nav-item:hover {
+    transform: none;
+  }
+}
