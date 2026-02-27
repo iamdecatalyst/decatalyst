@@ -20,10 +20,8 @@ export default function Skills() {
                 key={cat.id}
                 onClick={() => setActiveCategory(cat.id)}
                 className={cn(
-                  'px-3 py-1 rounded font-mono text-xs transition-all duration-200',
-                  activeCategory === cat.id
-                    ? 'text-green-400 bg-white/[0.06]'
-                    : 'text-neutral-500 hover:text-neutral-300 hover:bg-white/[0.03]'
+                  'neu-pill',
+                  activeCategory === cat.id && 'active'
                 )}
               >
                 <span className="text-copper">d</span> {cat.label.toLowerCase()}/
@@ -52,7 +50,7 @@ export default function Skills() {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: i * 0.03, duration: 0.2 }}
-                  className="px-3 py-2 rounded bg-white/[0.03] border border-white/[0.04] text-neutral-400 hover:text-white hover:border-white/[0.08] transition-all duration-200 text-xs"
+                  className="neu-badge neu-badge-3d text-xs justify-center py-2.5 px-3"
                 >
                   {skill.name}
                 </motion.div>
@@ -74,7 +72,7 @@ export default function Skills() {
             ].map((item) => (
               <div
                 key={item.lang}
-                className="p-4 rounded-lg bg-white/[0.02] border border-white/[0.04]"
+                className="neu-tile p-4"
               >
                 <p className="font-mono font-bold text-copper text-base mb-1">{item.lang}</p>
                 <p className="text-neutral-500 text-xs">{item.desc}</p>

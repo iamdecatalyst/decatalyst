@@ -25,7 +25,7 @@ function ProjectCard({ project, onClick }: { project: Project; onClick: () => vo
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.95 }}
-        className="neu-card p-6 cursor-pointer group border border-white/[0.06] hover:border-white/[0.1] transition-all duration-300 h-full"
+        className="neu-card p-6 cursor-pointer group h-full"
       >
         <div
           className="h-1 w-12 rounded-full mb-4"
@@ -73,7 +73,7 @@ function ProjectDetail({ project, onClose }: { project: Project; onClose: () => 
       <motion.div
         layoutId={project.id}
         onClick={(e) => e.stopPropagation()}
-        className="neu-card p-8 max-w-2xl w-full max-h-[80vh] overflow-y-auto border border-white/[0.06]"
+        className="neu-card p-8 max-w-2xl w-full max-h-[80vh] overflow-y-auto"
       >
         <div className="flex items-start justify-between mb-6">
           <div>
@@ -185,10 +185,8 @@ export default function Projects() {
             key={cat.id}
             onClick={() => setFilter(cat.id)}
             className={cn(
-              'px-3 py-1.5 rounded transition-all duration-200',
-              filter === cat.id
-                ? 'text-green-400 bg-white/[0.06]'
-                : 'text-neutral-500 hover:text-neutral-300 hover:bg-white/[0.03]'
+              'neu-pill',
+              filter === cat.id && 'active'
             )}
           >
             {cat.label}

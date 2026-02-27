@@ -36,14 +36,14 @@ export default function TerminalWindow({ title, children, className = '' }: Term
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       style={isMobile ? {} : { rotateX, rotateY, transformStyle: 'preserve-3d' }}
-      className={`relative rounded-xl overflow-hidden border border-white/[0.06] bg-neu-card/80 backdrop-blur-sm shadow-[6px_6px_12px_rgba(0,0,0,0.7),-6px_-6px_12px_rgba(40,40,40,0.15)] hover:shadow-[6px_6px_12px_rgba(0,0,0,0.7),-6px_-6px_12px_rgba(40,40,40,0.15),0_0_30px_rgba(0,47,167,0.08)] transition-shadow duration-300 ${className}`}
+      className={`neu-terminal ${className}`}
     >
       {/* Title bar */}
-      <div className="flex items-center gap-2 px-4 py-3 border-b border-white/[0.04] bg-neu-base/50">
-        <div className="w-3 h-3 rounded-full bg-[#ff5f57]" />
-        <div className="w-3 h-3 rounded-full bg-[#febc2e]" />
-        <div className="w-3 h-3 rounded-full bg-[#28c840]" />
-        <span className="ml-2 text-xs text-neutral-500 font-mono truncate">{title}</span>
+      <div className="neu-terminal-titlebar">
+        <div className="neu-terminal-dot neu-terminal-dot--close" />
+        <div className="neu-terminal-dot neu-terminal-dot--minimize" />
+        <div className="neu-terminal-dot neu-terminal-dot--maximize" />
+        <span className="ml-3 text-xs text-neutral-500 font-mono truncate">{title}</span>
       </div>
 
       {/* Content */}

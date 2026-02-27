@@ -55,7 +55,7 @@ export default function Contact() {
                     transition={{ delay: i * 0.08, type: 'spring', stiffness: 200 }}
                     whileHover={{ y: -4, scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="w-14 h-14 flex items-center justify-center text-neutral-500 hover:text-white rounded-xl bg-white/[0.03] border border-white/[0.06] hover:border-white/[0.1] hover:shadow-[0_0_20px_rgba(0,47,167,0.15)] transition-all duration-200"
+                    className="neu-tile w-14 h-14 flex items-center justify-center text-neutral-500 hover:text-white !rounded-2xl"
                     title={social.label}
                   >
                     {Icon && <Icon size={20} />}

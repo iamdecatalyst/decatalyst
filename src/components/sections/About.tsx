@@ -145,7 +145,7 @@ export default function About() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 + i * 0.1, duration: 0.5 }}
-              className="neu-card-flat p-5 rounded-xl border border-white/[0.06]"
+              className="neu-tile p-5"
             >
               <AnimatedCounter target={stat.value} suffix={stat.suffix} />
               <p className="text-neutral-500 text-xs font-mono uppercase tracking-wider mt-2">

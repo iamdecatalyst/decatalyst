@@ -142,6 +142,99 @@
   background: rgba(255, 255, 255, 0.2);
 }
 
+/* Terminal Window — deep 3D neumorphic container */
+.neu-terminal {
+  background: var(--neu-bg-card);
+  border-radius: var(--neu-radius-xl);
+  border: none;
+  box-shadow:
+    8px 8px 16px rgba(0, 0, 0, 0.8),
+    -8px -8px 16px rgba(40, 40, 40, 0.18),
+    0 0 20px rgba(255, 255, 255, 0.03);
+  transition: box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+.neu-terminal:hover {
+  box-shadow:
+    10px 10px 20px rgba(0, 0, 0, 0.85),
+    -10px -10px 20px rgba(40, 40, 40, 0.2),
+    0 0 40px rgba(0, 47, 167, 0.06),
+    0 0 20px rgba(255, 255, 255, 0.03);
+}
+
+/* Terminal title bar */
+.neu-terminal-titlebar {
+  display: flex;
+  align-items: center;
+  padding: 14px 18px;
+  background: var(--neu-bg-base);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+  box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.3);
+}
+
+/* macOS traffic light dots */
+.neu-terminal-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-right: 8px;
+  box-shadow:
+    inset 1px 1px 2px rgba(255, 255, 255, 0.25),
+    0 1px 3px rgba(0, 0, 0, 0.4);
+}
+.neu-terminal-dot--close { background: #ff5f57; }
+.neu-terminal-dot--minimize { background: #febc2e; }
+.neu-terminal-dot--maximize { background: #28c840; }
+
+/* Inset panel — for nested content areas inside terminals */
+.neu-panel-inset {
+  background: var(--neu-bg-input);
+  border-radius: var(--neu-radius-lg);
+  border: none;
+  box-shadow: var(--neu-shadow-pressed);
+  padding: 16px;
+}
+
+/* Raised tile — for stat cards, skill items, small interactive elements */
+.neu-tile {
+  background: var(--neu-bg-card);
+  border-radius: var(--neu-radius-lg);
+  border: none;
+  box-shadow: var(--neu-shadow-raised-sm), var(--neu-shadow-glow);
+  transition: var(--neu-transition);
+}
+.neu-tile:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--neu-shadow-raised), var(--neu-shadow-glow);
+}
+
+/* Pill button — for filter tabs, category toggles */
+.neu-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 16px;
+  background: var(--neu-bg-card);
+  border: none;
+  border-radius: 9999px;
+  box-shadow: var(--neu-shadow-raised-sm);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--neu-text-secondary);
+  cursor: pointer;
+  transition: var(--neu-transition);
+}
+.neu-pill:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--neu-shadow-raised);
+  color: var(--neu-text-primary);
+}
+.neu-pill.active {
+  background: var(--neu-active-bg, #ffffff);
+  color: var(--neu-active-text, #0d0d0d);
+  box-shadow: var(--neu-shadow-raised-sm), 0 0 20px rgba(255, 255, 255, 0.08);
+}
+
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   .neu-card:hover,
