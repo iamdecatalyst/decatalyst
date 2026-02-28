@@ -7,6 +7,7 @@ import About from './components/sections/About';
 import Skills from './components/sections/Skills';
 import Projects from './components/sections/Projects';
 import Experience from './components/sections/Experience';
+import Credentials from './components/sections/Credentials';
 import Blog from './components/sections/Blog';
 import Contact from './components/sections/Contact';
 
@@ -31,6 +32,9 @@ export default function App() {
         </TerminalSection>
         <TerminalSection id="experience">
           <Experience />
+        </TerminalSection>
+        <TerminalSection id="credentials">
+          <Credentials />
         </TerminalSection>
         <TerminalSection id="transmissions">
           <Blog />
