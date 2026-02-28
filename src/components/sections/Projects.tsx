@@ -49,7 +49,7 @@ function ProjectCard({ project, onClick }: { project: Project; onClick: () => vo
         <div className="p-5">
           <div className="flex items-center gap-3 mb-2">
             {project.logo && (
-              <img src={project.logo} alt={project.name} className="w-8 h-8 rounded object-contain" />
+              <img src={project.logo} alt={project.name} className="w-8 h-8 rounded-full object-cover" />
             )}
             <h3 className="font-mono font-bold text-lg tracking-wider uppercase text-white">
               {project.codename || project.name}
@@ -92,7 +92,7 @@ function ProjectDetail({ project, onClose }: { project: Project; onClose: () => 
         <div className="flex items-start justify-between mb-6">
           <div className="flex items-center gap-4">
             {project.logo && (
-              <img src={project.logo} alt={project.name} className="w-12 h-12 rounded-lg object-contain" />
+              <img src={project.logo} alt={project.name} className="w-12 h-12 rounded-full object-cover" />
             )}
             <div>
             <h3 className="font-mono font-bold text-2xl tracking-wider uppercase text-white">
