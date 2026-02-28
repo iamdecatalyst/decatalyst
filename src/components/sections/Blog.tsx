@@ -31,7 +31,7 @@ export default function Blog() {
       <TerminalWindow title="tail -f ~/transmissions.log">
         <div className="font-mono text-sm">
           <div className="text-neutral-500 text-xs mb-4">
-            <span className="text-white/80">$</span> tail -f transmissions.log
+            <span className="text-green-400">$</span> tail -f transmissions.log
           </div>
 
           <div className="space-y-6">

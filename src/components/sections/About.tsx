@@ -104,7 +104,7 @@ export default function About() {
               <div key={i} className="mb-0.5">
                 {line.type === 'prompt' ? (
                   <span>
-                    <span className="text-white/80">$</span>{' '}
+                    <span className="text-green-400">$</span>{' '}
                     <span className="text-white">{line.text.slice(2)}</span>
                   </span>
                 ) : line.type === 'divider' ? (

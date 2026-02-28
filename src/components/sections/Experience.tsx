@@ -9,7 +9,7 @@ export default function Experience() {
         <div className="font-mono text-sm">
           {/* Git log header */}
           <div className="text-neutral-500 text-xs mb-4">
-            <span className="text-white/80">$</span> git log --oneline --graph career
+            <span className="text-green-400">$</span> git log --oneline --graph career
           </div>
 
           <div className="space-y-6">

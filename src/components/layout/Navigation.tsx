@@ -63,7 +63,7 @@ export default function Navigation() {
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             className="font-mono text-sm text-white/80 hover:text-white transition-colors"
           >
-            <span className="text-neutral-500">[</span>isaac<span className="text-neutral-500">@</span>vylth<span className="text-neutral-500">]</span>
+            <span className="text-neutral-500">[</span><span className="text-green-400">isaac</span><span className="text-neutral-500">@</span><span className="text-purple-400">vylth</span><span className="text-neutral-500">]</span>
           </button>
 
           {/* Desktop tmux-style tabs */}

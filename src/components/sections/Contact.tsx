@@ -27,7 +27,7 @@ export default function Contact() {
       <TerminalWindow title="ssh connect@decatalyst">
         <div className="text-center">
           <div className="font-mono text-sm text-neutral-500 mb-6">
-            <span className="text-white/80">$</span> ssh connect@decatalyst.com
+            <span className="text-green-400">$</span> ssh connect@decatalyst.com
             <br />
             <span className="text-neutral-400">Connection established.</span>
           </div>

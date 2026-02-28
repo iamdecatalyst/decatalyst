@@ -40,7 +40,7 @@ export default function Hero() {
             transition={{ delay: 0.3, duration: 0.4 }}
             className="font-mono text-xs text-neutral-500 mb-6 text-left"
           >
-            $ cat /etc/motd
+            <span className="text-green-400">$</span> cat /etc/motd
           </motion.p>
 
           {/* ASCII Art Banner — single line */}
@@ -94,7 +94,7 @@ export default function Hero() {
             animate="visible"
           >
             <div className="font-mono text-sm text-neutral-400">
-              <span className="text-white/70">$</span>{' '}
+              <span className="text-green-400">$</span>{' '}
               <RotatingTypewriter phrases={phrases} />
             </div>
           </motion.div>

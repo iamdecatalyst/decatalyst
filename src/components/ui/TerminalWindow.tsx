@@ -43,7 +43,16 @@ export default function TerminalWindow({ title, children, className = '' }: Term
         <div className="neu-terminal-dot neu-terminal-dot--close" />
         <div className="neu-terminal-dot neu-terminal-dot--minimize" />
         <div className="neu-terminal-dot neu-terminal-dot--maximize" />
-        <span className="ml-3 text-xs text-neutral-500 font-mono truncate">{title}</span>
+        <span className="ml-3 text-xs text-neutral-500 font-mono truncate">
+          {title.includes('isaac@vylth') ? (
+            <>
+              <span className="text-green-400">isaac</span>
+              <span className="text-neutral-500">@</span>
+              <span className="text-purple-400">vylth</span>
+              {title.replace('isaac@vylth', '')}
+            </>
+          ) : title}
+        </span>
       </div>
 
       {/* Content */}

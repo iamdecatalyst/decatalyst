@@ -166,7 +166,7 @@ export default function Projects() {
     <div>
       <div className="mb-8">
         <div className="font-mono text-sm text-neutral-500 mb-4">
-          <span className="text-white/80">$</span> tree ~/projects/
+          <span className="text-green-400">$</span> tree ~/projects/
         </div>
         <h2 className="font-mono font-bold text-2xl tracking-wider uppercase text-white mb-2">
           The Ecosystem

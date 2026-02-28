@@ -24,7 +24,7 @@ export default function Skills() {
                   activeCategory === cat.id && 'active'
                 )}
               >
-                <span className="text-white/80">d</span> {cat.label.toLowerCase()}/
+                <span className="text-purple-400">d</span> {cat.label.toLowerCase()}/
               </button>
             ))}
           </div>
@@ -62,7 +62,7 @@ export default function Skills() {
         {/* Language breakdown */}
         <div className="mt-8 pt-6 border-t border-white/[0.04]">
           <div className="text-neutral-500 font-mono text-xs mb-4">
-            <span className="text-white/80">$</span> cat primary_languages.conf
+            <span className="text-green-400">$</span> cat primary_languages.conf
           </div>
           <div className="grid sm:grid-cols-3 gap-3">
             {[
