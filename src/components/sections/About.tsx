@@ -50,7 +50,7 @@ function AnimatedCounter({ target, suffix = '' }: { target: number; suffix?: str
   }, [started, target]);
 
   return (
-    <div ref={ref} className="font-mono text-3xl font-bold text-copper">
+    <div ref={ref} className="font-mono text-3xl font-bold text-white">
       {count}{suffix}
     </div>
   );
@@ -104,7 +104,7 @@ export default function About() {
               <div key={i} className="mb-0.5">
                 {line.type === 'prompt' ? (
                   <span>
-                    <span className="text-green-400">$</span>{' '}
+                    <span className="text-white/60">$</span>{' '}
                     <span className="text-white">{line.text.slice(2)}</span>
                   </span>
                 ) : line.type === 'divider' ? (
@@ -115,7 +115,7 @@ export default function About() {
               </div>
             ))}
             {visibleLines < terminalLines.length && (
-              <span className="animate-blink text-green-400">_</span>
+              <span className="animate-blink text-white/60">_</span>
             )}
           </div>
         </TerminalWindow>

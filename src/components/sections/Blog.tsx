@@ -31,7 +31,7 @@ export default function Blog() {
       <TerminalWindow title="tail -f ~/transmissions.log">
         <div className="font-mono text-sm">
           <div className="text-neutral-600 text-xs mb-4">
-            <span className="text-green-400">$</span> tail -f transmissions.log
+            <span className="text-white/60">$</span> tail -f transmissions.log
           </div>
 
           <div className="space-y-6">
@@ -46,11 +46,11 @@ export default function Blog() {
               >
                 <div className="flex items-center gap-3 mb-2">
                   <span className="text-neutral-600 text-xs">[{post.date}]</span>
-                  <span className={`text-xs ${post.level === 'INFO' ? 'text-green-400' : 'text-blue-400'}`}>
+                  <span className={`text-xs ${post.level === 'INFO' ? 'text-white/70' : 'text-neutral-500'}`}>
                     {post.level}
                   </span>
                 </div>
-                <h3 className="font-mono font-bold text-white text-base mb-2 group-hover:text-copper transition-colors">
+                <h3 className="font-mono font-bold text-white text-base mb-2 group-hover:text-neutral-300 transition-colors">
                   {post.title}
                 </h3>
                 <p className="text-neutral-500 text-sm leading-relaxed pl-4 border-l border-neutral-800">
@@ -60,7 +60,7 @@ export default function Blog() {
             ))}
           </div>
 
-          <div className="mt-6 text-green-400/50 animate-blink">_</div>
+          <div className="mt-6 text-white/30 animate-blink">_</div>
         </div>
       </TerminalWindow>
     </div>

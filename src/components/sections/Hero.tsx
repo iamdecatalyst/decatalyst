@@ -92,7 +92,7 @@ export default function Hero() {
 
           <motion.div variants={fadeIn(2.5)} initial="hidden" animate="visible">
             <div className="font-mono text-sm text-neutral-500">
-              <span className="text-green-400">$</span>{' '}
+              <span className="text-white/60">$</span>{' '}
               <RotatingTypewriter phrases={phrases} />
             </div>
           </motion.div>

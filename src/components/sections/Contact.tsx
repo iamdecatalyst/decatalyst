@@ -27,7 +27,7 @@ export default function Contact() {
       <TerminalWindow title="ssh connect@decatalyst">
         <div className="text-center">
           <div className="font-mono text-sm text-neutral-600 mb-6">
-            <span className="text-green-400">$</span> ssh connect@decatalyst.com
+            <span className="text-white/60">$</span> ssh connect@decatalyst.com
             <br />
             <span className="text-neutral-500">Connection established.</span>
           </div>
@@ -81,7 +81,7 @@ export default function Contact() {
           </p>
 
           <div className="mt-6 font-mono text-xs text-neutral-700">
-            <span className="text-green-400/50">$</span> <span className="animate-blink text-green-400/50">_</span>
+            <span className="text-white/30">$</span> <span className="animate-blink text-white/30">_</span>
           </div>
         </div>
       </TerminalWindow>

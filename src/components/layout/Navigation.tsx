@@ -61,7 +61,7 @@ export default function Navigation() {
         <div className="max-w-7xl mx-auto px-6 h-12 flex items-center justify-between">
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="font-mono text-sm text-green-400 hover:text-green-300 transition-colors"
+            className="font-mono text-sm text-white/80 hover:text-white transition-colors"
           >
             <span className="text-neutral-600">[</span>isaac<span className="text-neutral-600">@</span>vylth<span className="text-neutral-600">]</span>
           </button>
@@ -75,7 +75,7 @@ export default function Navigation() {
                 className={cn(
                   'px-3 py-1.5 transition-all duration-200 rounded',
                   active === item.id
-                    ? 'text-green-400 bg-white/[0.05]'
+                    ? 'text-white bg-white/[0.08]'
                     : 'text-neutral-500 hover:text-neutral-300 hover:bg-white/[0.03]'
                 )}
               >
@@ -113,7 +113,7 @@ export default function Navigation() {
                 onClick={() => scrollTo(item.id)}
                 className={cn(
                   'font-mono text-lg tracking-wider',
-                  active === item.id ? 'text-green-400' : 'text-neutral-500 hover:text-white'
+                  active === item.id ? 'text-white' : 'text-neutral-500 hover:text-white'
                 )}
               >
                 <span className="text-neutral-600 mr-2">{item.index}:</span>

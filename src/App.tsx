@@ -1,4 +1,3 @@
-import { lazy, Suspense } from 'react';
 import Navigation from './components/layout/Navigation';
 import ScrollProgress from './components/layout/ScrollProgress';
 import Footer from './components/layout/Footer';
@@ -11,19 +10,13 @@ import Experience from './components/sections/Experience';
 import Blog from './components/sections/Blog';
 import Contact from './components/sections/Contact';
 
-const DevCanvas = lazy(() => import('./components/three/DevCanvas'));
-
 export default function App() {
   return (
     <>
-      <Suspense fallback={<div className="fixed inset-0 z-0 bg-neu-base" />}>
-        <DevCanvas />
-      </Suspense>
-
       <ScrollProgress />
       <Navigation />
 
-      <main className="relative z-10">
+      <main className="relative">
         <TerminalSection id="hero">
           <Hero />
         </TerminalSection>

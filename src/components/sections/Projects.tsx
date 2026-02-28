@@ -28,8 +28,7 @@ function ProjectCard({ project, onClick }: { project: Project; onClick: () => vo
         className="neu-card p-6 cursor-pointer group h-full"
       >
         <div
-          className="h-1 w-12 rounded-full mb-4"
-          style={{ background: project.accent }}
+          className="h-1 w-12 rounded-full mb-4 bg-white/20"
         />
         <div className="flex items-center gap-2 mb-2">
           <h3 className="font-mono font-bold text-lg tracking-wider uppercase text-white">
@@ -78,8 +77,7 @@ function ProjectDetail({ project, onClose }: { project: Project; onClose: () => 
         <div className="flex items-start justify-between mb-6">
           <div>
             <div
-              className="h-1 w-16 rounded-full mb-4"
-              style={{ background: project.accent }}
+              className="h-1 w-16 rounded-full mb-4 bg-white/20"
             />
             <h3 className="font-mono font-bold text-2xl tracking-wider uppercase text-white">
               {project.name}
@@ -109,7 +107,7 @@ function ProjectDetail({ project, onClose }: { project: Project; onClose: () => 
           <div className="space-y-2">
             {project.highlights.map((h) => (
               <div key={h} className="flex items-center gap-2">
-                <div className="w-1.5 h-1.5 rounded-full" style={{ background: project.accent }} />
+                <div className="w-1.5 h-1.5 rounded-full bg-white/30" />
                 <span className="text-neutral-400 text-sm">{h}</span>
               </div>
             ))}
@@ -168,7 +166,7 @@ export default function Projects() {
     <div>
       <div className="mb-8">
         <div className="font-mono text-sm text-neutral-600 mb-4">
-          <span className="text-green-400">$</span> tree ~/projects/
+          <span className="text-white/60">$</span> tree ~/projects/
         </div>
         <h2 className="font-mono font-bold text-2xl tracking-wider uppercase text-white mb-2">
           The Ecosystem

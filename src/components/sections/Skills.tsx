@@ -24,7 +24,7 @@ export default function Skills() {
                   activeCategory === cat.id && 'active'
                 )}
               >
-                <span className="text-copper">d</span> {cat.label.toLowerCase()}/
+                <span className="text-white/60">d</span> {cat.label.toLowerCase()}/
               </button>
             ))}
           </div>
@@ -62,7 +62,7 @@ export default function Skills() {
         {/* Language breakdown */}
         <div className="mt-8 pt-6 border-t border-white/[0.04]">
           <div className="text-neutral-600 font-mono text-xs mb-4">
-            <span className="text-green-400">$</span> cat primary_languages.conf
+            <span className="text-white/60">$</span> cat primary_languages.conf
           </div>
           <div className="grid sm:grid-cols-3 gap-3">
             {[
@@ -74,7 +74,7 @@ export default function Skills() {
                 key={item.lang}
                 className="neu-tile p-4"
               >
-                <p className="font-mono font-bold text-copper text-base mb-1">{item.lang}</p>
+                <p className="font-mono font-bold text-white text-base mb-1">{item.lang}</p>
                 <p className="text-neutral-500 text-xs">{item.desc}</p>
               </div>
             ))}
