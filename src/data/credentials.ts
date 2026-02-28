@@ -8,6 +8,7 @@ export interface Credential {
   taxId?: string;
   description: string;
   certFile: string;
+  previewImage: string;
   verifyUrl?: string;
   verifyLabel?: string;
 }
@@ -23,6 +24,7 @@ export const credentials: Credential[] = [
     taxId: '2622467885447',
     description: 'The Catalyst Strategic Ventures — Computer Programming, Consultancy and Related Activities. Registered under the Companies and Allied Matters Act 2020.',
     certFile: '/certs/cac-certificate.pdf',
+    previewImage: '/certs/cac-certificate.png',
     verifyUrl: 'https://search.cac.gov.ng',
     verifyLabel: 'Verify on CAC',
   },
@@ -34,6 +36,7 @@ export const credentials: Credential[] = [
     date: 'October 31, 2025',
     description: 'Professional certificate covering Python fundamentals for data science, AI, and machine learning applications.',
     certFile: '/certs/coursera-python-ds-ai.pdf',
+    previewImage: '/certs/coursera-python-ds-ai.png',
     verifyUrl: 'https://www.credly.com/badges/27067478-2b75-4bc5-a6ef-e6e1ebed6141',
     verifyLabel: 'Verify on Credly',
   },
