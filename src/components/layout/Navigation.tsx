@@ -64,7 +64,7 @@ export default function Navigation() {
             className="font-mono text-sm text-white/80 hover:text-white transition-colors"
           >
             <img src="/pfp.jpg" alt="" className="w-6 h-6 rounded-full object-cover opacity-80 mr-2 inline-block align-middle" />
-            <span className="text-neutral-500">[</span><span className="text-green-400">isaac</span><span className="text-neutral-500">@</span><span className="text-purple-400">vylth</span><span className="text-neutral-500">]</span>
+            <span className="text-neutral-500">[</span><span className="text-green-400">decatalyst</span><span className="text-neutral-500">@</span><span className="text-purple-400">vylth</span><span className="text-neutral-500">]</span>
           </button>
 
           {/* Desktop tmux-style tabs */}

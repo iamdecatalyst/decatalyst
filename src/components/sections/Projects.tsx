@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { projects, type Project } from '../../data/projects';
 import Card3D from '../ui/Card3D';
+import TechBadge from '../ui/TechBadge';
 import { cn } from '../../lib/utils';
 import { ExternalLink, Github, X } from 'lucide-react';
 
@@ -47,9 +48,7 @@ function ProjectCard({ project, onClick }: { project: Project; onClick: () => vo
         </p>
         <div className="flex flex-wrap gap-1.5">
           {project.stack.slice(0, 4).map((tech) => (
-            <span key={tech} className="neu-badge text-xs">
-              {tech}
-            </span>
+            <TechBadge key={tech} name={tech} />
           ))}
           {project.stack.length > 4 && (
             <span className="neu-badge text-xs">+{project.stack.length - 4}</span>
@@ -120,9 +119,7 @@ function ProjectDetail({ project, onClose }: { project: Project; onClose: () => 
           </p>
           <div className="flex flex-wrap gap-2">
             {project.stack.map((tech) => (
-              <span key={tech} className="neu-badge">
-                {tech}
-              </span>
+              <TechBadge key={tech} name={tech} />
             ))}
           </div>
         </div>

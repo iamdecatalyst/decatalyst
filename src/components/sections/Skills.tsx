@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { skillCategories } from '../../data/skills';
 import TerminalWindow from '../ui/TerminalWindow';
+import { getTechIcon } from '../../lib/techIcons';
 import { cn } from '../../lib/utils';
 
 export default function Skills() {
@@ -13,7 +14,7 @@ export default function Skills() {
       <TerminalWindow title="ls -la ~/skills/">
         {/* Category tabs as directory listing */}
         <div className="font-mono text-sm mb-6">
-          <div className="text-neutral-500 mb-2">drwxr-xr-x  4 isaac vylth  4096 Feb 27 00:00 .</div>
+          <div className="text-neutral-500 mb-2">drwxr-xr-x  4 decatalyst vylth  4096 Feb 27 00:00 .</div>
           <div className="flex flex-wrap gap-2">
             {skillCategories.map((cat) => (
               <button
@@ -50,8 +51,11 @@ export default function Skills() {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: i * 0.03, duration: 0.2 }}
-                  className="neu-badge neu-badge-3d text-xs justify-center py-2.5 px-3"
+                  className="neu-badge neu-badge-3d text-xs justify-center py-2.5 px-3 gap-1.5"
                 >
+                  {getTechIcon(skill.name) && (
+                    <img src={getTechIcon(skill.name)!} alt="" className="w-4 h-4" loading="lazy" />
+                  )}
                   {skill.name}
                 </motion.div>
               ))}
@@ -74,7 +78,12 @@ export default function Skills() {
                 key={item.lang}
                 className="neu-tile p-4"
               >
-                <p className="font-mono font-bold text-white text-base mb-1">{item.lang}</p>
+                <div className="flex items-center gap-2 mb-1">
+                  {getTechIcon(item.lang) && (
+                    <img src={getTechIcon(item.lang)!} alt="" className="w-5 h-5" loading="lazy" />
+                  )}
+                  <p className="font-mono font-bold text-white text-base">{item.lang}</p>
+                </div>
                 <p className="text-neutral-400 text-xs">{item.desc}</p>
               </div>
             ))}

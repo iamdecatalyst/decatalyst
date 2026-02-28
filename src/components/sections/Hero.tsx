@@ -31,7 +31,7 @@ const phrases = [
 export default function Hero() {
   return (
     <div className="flex flex-col items-center justify-center min-h-[80vh]">
-      <TerminalWindow title="isaac@vylth:~$" className="max-w-3xl w-full">
+      <TerminalWindow title="decatalyst@vylth:~$" className="max-w-3xl w-full">
         <div className="text-center">
           {/* Command prompt */}
           <motion.p
@@ -63,23 +63,9 @@ export default function Hero() {
             ))}
           </div>
 
-          {/* Avatar */}
-          <motion.div
-            variants={fadeIn(lineDelay(NAME_ART.length) + 0.1)}
-            initial="hidden"
-            animate="visible"
-            className="mb-4"
-          >
-            <img
-              src="/pfp.jpg"
-              alt="Isaac Wisdom"
-              className="w-20 h-20 sm:w-24 sm:h-24 rounded-full object-cover mx-auto shadow-[4px_4px_10px_rgba(0,0,0,0.8),-4px_-4px_10px_rgba(55,55,55,0.2)]"
-            />
-          </motion.div>
-
           {/* Subtitle */}
           <motion.p
-            variants={fadeIn(lineDelay(NAME_ART.length) + 0.3)}
+            variants={fadeIn(lineDelay(NAME_ART.length) + 0.2)}
             initial="hidden"
             animate="visible"
             className="font-serif italic text-lg sm:text-xl text-neutral-300 mb-4"
