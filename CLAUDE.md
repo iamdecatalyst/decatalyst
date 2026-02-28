@@ -9,22 +9,19 @@ Personal portfolio for Isaac Wisdom (De Catalyst) - CEO & Solo Founder, VYLTH St
 - React 19 + Vite 7 + TypeScript
 - Tailwind CSS 3 with neumorphic design system
 - Framer Motion 12 (scroll animations, shared layout transitions)
-- Three.js via @react-three/fiber (constellation hero, particles, bloom)
-- @react-three/postprocessing (bloom + vignette)
 
 ## Project Structure
 
 ```
 src/
 ├── components/
-│   ├── layout/      Navigation, Footer, ScrollProgress, SectionWrapper
-│   ├── three/       HeroScene (Three.js constellation + particles)
-│   ├── ui/          TypeWriter
+│   ├── layout/      Navigation, Footer, ScrollProgress, TerminalSection
+│   ├── ui/          TerminalWindow, Card3D, Typewriter
 │   └── sections/    Hero, About, Skills, Projects, Experience, Blog, Contact
-├── hooks/           useScrollProgress, useSectionInView, useMousePosition, useReducedMotion
+├── hooks/           useSpaceScroll, useIsMobile, useMousePosition, useReducedMotion
 ├── data/            projects.ts, skills.ts, experience.ts, socials.ts
-├── lib/             utils.ts (cn helper)
-└── styles/          neumorphic.css (design system)
+├── lib/             utils.ts (cn helper), spaceConfig.ts
+└── styles/          neumorphic.css (design system), depth3d.css
 ```
 
 ## Development
@@ -64,9 +61,17 @@ Serves `/opt/decatalyst/dist` as static files with SPA fallback (`try_files $uri
 **Repo:** https://github.com/Wisyle/decatalyst (public)
 **Branch:** main
 
+## Git Commit Rules
+
+- **One-liner brief commit messages** — no multi-line, no body paragraphs
+- **No Co-Authored-By** — never add co-author trailers
+- Example: `git commit -m "remove borders, pure shadow depth"`
+
 ## Design System
 
-- **Dark base:** #0d0d0d with neumorphic dual shadows
-- **Accents:** Klein Blue (#002FA7), Copper (#cd7f32), Rose (#e11d48)
+- **Theme:** Black & white monochrome (matching VYLTH Nexus ecosystem)
+- **Dark base:** #0d0d0d with neumorphic dual shadows, NO borders on elements
+- **Depth:** Pure shadow-based (raised/pressed dual shadows), never use `border` for depth
+- **Accent:** White (#ffffff) — no colored accents
 - **Fonts:** Inter (body), JetBrains Mono (headings/code), Crimson Pro (serif accents)
-- **Neumorphic CSS:** Ported from VYLTH Flow (`/mnt/vylth/vylth-flow/packages/theme/src/css/neumorphic.css`)
+- **Neumorphic CSS:** Adapted from VYLTH Nexus (`/mnt/vylth/nexus/accounts/src/index.css`)
