@@ -7,9 +7,9 @@
 
 :root {
   --neu-bg-base: #0d0d0d;
-  --neu-bg-card: #1a1a1a;
+  --neu-bg-card: #151515;
   --neu-bg-input: #111111;
-  --neu-bg-elevated: #222222;
+  --neu-bg-elevated: #1c1c1c;
   --neu-border: #2a2a2a;
 
   --neu-text-primary: #ffffff;
@@ -143,7 +143,7 @@
 
 /* Terminal Window — deep 3D neumorphic container */
 .neu-terminal {
-  background: #1e1e1e;
+  background: #161616;
   border-radius: var(--neu-radius-xl);
   border: 1px solid rgba(255, 255, 255, 0.08);
   box-shadow:
@@ -166,7 +166,7 @@
   display: flex;
   align-items: center;
   padding: 14px 18px;
-  background: #131313;
+  background: #111111;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
