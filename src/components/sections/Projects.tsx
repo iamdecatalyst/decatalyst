@@ -26,33 +26,44 @@ function ProjectCard({ project, onClick }: { project: Project; onClick: () => vo
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.95 }}
-        className="neu-card p-6 cursor-pointer group h-full"
+        className="neu-terminal cursor-pointer group h-full"
       >
-        <div
-          className="h-1 w-12 rounded-full mb-4 bg-white/20"
-        />
-        <div className="flex items-center gap-2 mb-2">
-          <h3 className="font-mono font-bold text-lg tracking-wider uppercase text-white">
-            {project.codename || project.name}
-          </h3>
+        {/* Terminal title bar */}
+        <div className="neu-terminal-titlebar">
+          <div className="neu-terminal-dot neu-terminal-dot--close" />
+          <div className="neu-terminal-dot neu-terminal-dot--minimize" />
+          <div className="neu-terminal-dot neu-terminal-dot--maximize" />
+          <span className="ml-3 text-xs text-neutral-500 font-mono truncate">
+            ~/{(project.codename || project.name).toLowerCase()}
+          </span>
           <div
             className={cn(
-              'neu-status-dot',
+              'neu-status-dot ml-auto',
               project.status === 'live' && 'online',
               project.status === 'building' && 'building'
             )}
           />
         </div>
-        <p className="text-neutral-300 text-sm mb-4 line-clamp-2">
-          {project.tagline}
-        </p>
-        <div className="flex flex-wrap gap-1.5">
-          {project.stack.slice(0, 4).map((tech) => (
-            <TechBadge key={tech} name={tech} />
-          ))}
-          {project.stack.length > 4 && (
-            <span className="neu-badge text-xs">+{project.stack.length - 4}</span>
-          )}
+
+        {/* Card content */}
+        <div className="p-5">
+          <h3 className="font-mono font-bold text-lg tracking-wider uppercase text-white mb-2">
+            {project.codename || project.name}
+          </h3>
+          <p className="text-neutral-300 text-sm mb-4 line-clamp-2">
+            {project.tagline}
+          </p>
+          <div className="flex flex-wrap gap-1.5 mb-4">
+            {project.stack.slice(0, 4).map((tech) => (
+              <TechBadge key={tech} name={tech} />
+            ))}
+            {project.stack.length > 4 && (
+              <span className="neu-badge text-xs">+{project.stack.length - 4}</span>
+            )}
+          </div>
+          <div className="font-mono text-xs text-neutral-500 group-hover:text-neutral-300 transition-colors">
+            <span className="text-green-400">$</span> click to explore <span className="animate-pulse">_</span>
+          </div>
         </div>
       </motion.div>
     </Card3D>

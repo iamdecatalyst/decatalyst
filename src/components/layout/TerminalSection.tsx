@@ -5,9 +5,10 @@ interface TerminalSectionProps {
   id: string;
   children: ReactNode;
   className?: string;
+  compact?: boolean;
 }
 
-export default function TerminalSection({ id, children, className = '' }: TerminalSectionProps) {
+export default function TerminalSection({ id, children, className = '', compact = false }: TerminalSectionProps) {
   const ref = useRef<HTMLDivElement>(null);
 
   const { scrollYProgress } = useScroll({
@@ -23,7 +24,7 @@ export default function TerminalSection({ id, children, className = '' }: Termin
   const opacity = useTransform(scrollYProgress, [0, 0.2, 0.5, 0.8, 1], [0, 1, 1, 1, 0]);
 
   return (
-    <section id={id} ref={ref} className="min-h-screen flex items-center py-24 lg:py-32">
+    <section id={id} ref={ref} className={compact ? "flex items-center pt-20 pb-12" : "min-h-screen flex items-center py-24 lg:py-32"}>
       <motion.div
         style={{ scale, opacity }}
         className={`max-w-7xl mx-auto px-6 w-full ${className}`}

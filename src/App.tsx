@@ -17,7 +17,7 @@ export default function App() {
       <Navigation />
 
       <main className="relative">
-        <TerminalSection id="hero">
+        <TerminalSection id="hero" compact>
           <Hero />
         </TerminalSection>
         <TerminalSection id="about">

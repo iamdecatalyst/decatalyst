@@ -30,7 +30,7 @@ const phrases = [
 
 export default function Hero() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-[80vh]">
+    <div className="flex flex-col items-center justify-center min-h-[50vh]">
       <TerminalWindow title="decatalyst@vylth:~$" className="max-w-3xl w-full">
         <div className="text-center">
           {/* Command prompt */}
@@ -124,7 +124,7 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: lineDelay(NAME_ART.length) + 1.5 }}
-        className="mt-12"
+        className="mt-6"
       >
         <motion.div
           animate={{ y: [0, 8, 0] }}
