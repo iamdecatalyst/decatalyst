@@ -8,6 +8,7 @@ export interface Project {
   category: 'platform' | 'trading' | 'ai' | 'security' | 'devops' | 'payments';
   accent: string;
   status: 'live' | 'active' | 'building';
+  logo?: string;
   github?: string;
   url?: string;
   highlights: string[];
@@ -24,6 +25,7 @@ export const projects: Project[] = [
     category: 'platform',
     accent: '#002FA7',
     status: 'active',
+    logo: 'https://media.vylth.com/images/sOs5bym9.png',
     url: 'https://app.vylth.com',
     highlights: ['5 gRPC microservices', 'Multi-ecosystem architecture', 'Institutional grade'],
   },
@@ -37,6 +39,7 @@ export const projects: Project[] = [
     category: 'payments',
     accent: '#cd7f32',
     status: 'active',
+    logo: 'https://media.vylth.com/images/wJdYxo84.png',
     highlights: ['RPG Stack (Rust/Python/Go)', '12+ blockchain networks', '40+ token combos'],
   },
   {
@@ -49,6 +52,7 @@ export const projects: Project[] = [
     category: 'trading',
     accent: '#e11d48',
     status: 'live',
+    logo: 'https://media.vylth.com/images/A0WJgKZs.png',
     highlights: ['6 autonomous strategies', 'Real-time IRIS monitoring', 'Multi-exchange'],
   },
   {
@@ -61,6 +65,7 @@ export const projects: Project[] = [
     category: 'ai',
     accent: '#8b5cf6',
     status: 'live',
+    logo: 'https://media.vylth.com/images/h4WUXeB9.png',
     url: 'https://sage.vylth.com',
     highlights: ['4-layer memory system', 'Native Android app', 'RPG skill evolution'],
   },
@@ -86,6 +91,7 @@ export const projects: Project[] = [
     category: 'platform',
     accent: '#3b82f6',
     status: 'building',
+    logo: 'https://media.vylth.com/images/z7uw4PI4.png',
     highlights: ['Asymmetric JWT signing', 'Zero-network validation', '5-tier RBAC'],
   },
   {
@@ -186,6 +192,7 @@ export const projects: Project[] = [
     category: 'devops',
     accent: '#6366f1',
     status: 'active',
+    logo: 'https://media.vylth.com/images/UsP0exgL.jpg',
     highlights: ['Centralized logging', 'Multi-service monitoring', 'Health tracking'],
   },
 ];

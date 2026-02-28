@@ -47,9 +47,14 @@ function ProjectCard({ project, onClick }: { project: Project; onClick: () => vo
 
         {/* Card content */}
         <div className="p-5">
-          <h3 className="font-mono font-bold text-lg tracking-wider uppercase text-white mb-2">
-            {project.codename || project.name}
-          </h3>
+          <div className="flex items-center gap-3 mb-2">
+            {project.logo && (
+              <img src={project.logo} alt={project.name} className="w-8 h-8 rounded object-contain" />
+            )}
+            <h3 className="font-mono font-bold text-lg tracking-wider uppercase text-white">
+              {project.codename || project.name}
+            </h3>
+          </div>
           <p className="text-neutral-300 text-sm mb-4 line-clamp-2">
             {project.tagline}
           </p>
@@ -85,10 +90,11 @@ function ProjectDetail({ project, onClose }: { project: Project; onClose: () => 
         className="neu-card p-8 max-w-2xl w-full max-h-[80vh] overflow-y-auto"
       >
         <div className="flex items-start justify-between mb-6">
-          <div>
-            <div
-              className="h-1 w-16 rounded-full mb-4 bg-white/20"
-            />
+          <div className="flex items-center gap-4">
+            {project.logo && (
+              <img src={project.logo} alt={project.name} className="w-12 h-12 rounded-lg object-contain" />
+            )}
+            <div>
             <h3 className="font-mono font-bold text-2xl tracking-wider uppercase text-white">
               {project.name}
             </h3>
@@ -97,6 +103,7 @@ function ProjectDetail({ project, onClose }: { project: Project; onClose: () => 
                 Codename: {project.codename}
               </p>
             )}
+            </div>
           </div>
           <button
             onClick={onClose}
