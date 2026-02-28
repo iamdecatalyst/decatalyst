@@ -5,7 +5,7 @@ import TerminalWindow from '../ui/TerminalWindow';
 const terminalLines = [
   { type: 'prompt', text: '$ whoami' },
   { type: 'divider', text: '─'.repeat(40) },
-  { type: 'text', text: 'Isaac Wisdom (De Catalyst / Wisyle)' },
+  { type: 'text', text: 'Isaac Wisdom (De Catalyst / iamdecatalyst)' },
   { type: 'text', text: 'CEO & Solo Founder, VYLTH Strategies' },
   { type: 'text', text: '' },
   { type: 'text', text: 'Previously: TAR Global Strategies' },

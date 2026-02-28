@@ -58,7 +58,7 @@ Serves `/opt/decatalyst/dist` as static files with SPA fallback (`try_files $uri
 
 ## GitHub
 
-**Repo:** https://github.com/Wisyle/decatalyst (public)
+**Repo:** https://github.com/iamdecatalyst/decatalyst (public)
 **Branch:** main
 
 ## Git Commit Rules

@@ -6,7 +6,7 @@ export interface SocialLink {
 }
 
 export const socials: SocialLink[] = [
-  { id: 'github', label: 'GitHub', url: 'https://github.com/wisyle', icon: 'github' },
+  { id: 'github', label: 'GitHub', url: 'https://github.com/iamdecatalyst', icon: 'github' },
   { id: 'twitter', label: 'X / Twitter', url: 'https://x.com/iamdecatalyst', icon: 'twitter' },
   { id: 'instagram', label: 'Instagram', url: 'https://instagram.com/iamdecatalyst', icon: 'instagram' },
   { id: 'telegram', label: 'Telegram', url: 'https://t.me/iamdecatalyst', icon: 'send' },

@@ -95,13 +95,13 @@ export default function Hero() {
             className="mb-6"
           >
             <a
-              href="https://github.com/Wisyle"
+              href="https://github.com/iamdecatalyst"
               target="_blank"
               rel="noopener noreferrer"
               className="neu-badge inline-flex items-center gap-2 text-sm hover:text-white transition-colors"
             >
               <Github size={16} />
-              <span className="font-mono">@Wisyle</span>
+              <span className="font-mono">@iamdecatalyst</span>
             </a>
           </motion.div>
 

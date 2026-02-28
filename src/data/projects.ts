@@ -148,7 +148,7 @@ export const projects: Project[] = [
     category: 'devops',
     accent: '#64748b',
     status: 'live',
-    github: 'https://github.com/wisyle/ccmd',
+    github: 'https://github.com/iamdecatalyst/ccmd',
     highlights: ['Cross-platform', '3 stars on GitHub', 'Natural shell shortcuts'],
   },
   {
@@ -161,7 +161,7 @@ export const projects: Project[] = [
     category: 'payments',
     accent: '#cd7f32',
     status: 'live',
-    github: 'https://github.com/wisyle',
+    github: 'https://github.com/iamdecatalyst',
     highlights: ['Open source templates', '12+ networks', 'One-file integration'],
   },
   {
