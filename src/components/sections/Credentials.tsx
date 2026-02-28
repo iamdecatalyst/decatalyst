@@ -67,7 +67,7 @@ function CredentialDetail({ cred, onClose }: { cred: Credential; onClose: () => 
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm"
       onClick={onClose}
     >
       <motion.div
@@ -75,7 +75,7 @@ function CredentialDetail({ cred, onClose }: { cred: Credential; onClose: () => 
         animate={{ scale: 1, opacity: 1 }}
         exit={{ scale: 0.95, opacity: 0 }}
         onClick={(e) => e.stopPropagation()}
-        className="neu-terminal max-w-2xl w-full max-h-[85vh] overflow-y-auto"
+        className="neu-terminal w-full h-full max-w-none rounded-none overflow-y-auto"
       >
         <div className="neu-terminal-titlebar">
           <div className="neu-terminal-dot neu-terminal-dot--close" />
@@ -140,7 +140,7 @@ function CredentialDetail({ cred, onClose }: { cred: Credential; onClose: () => 
           <div className="neu-panel-inset p-3 mb-5">
             <iframe
               src={cred.certFile}
-              className="w-full h-[300px] rounded-lg"
+              className="w-full h-[50vh] rounded-lg"
               title={cred.title}
             />
           </div>
