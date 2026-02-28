@@ -7,31 +7,31 @@
 
 :root {
   --neu-bg-base: #0d0d0d;
-  --neu-bg-card: #141414;
-  --neu-bg-input: #0a0a0a;
-  --neu-bg-elevated: #1a1a1a;
-  --neu-border: #1f1f1f;
+  --neu-bg-card: #1a1a1a;
+  --neu-bg-input: #111111;
+  --neu-bg-elevated: #222222;
+  --neu-border: #2a2a2a;
 
   --neu-text-primary: #ffffff;
   --neu-text-secondary: #a0a0a0;
   --neu-text-muted: #666666;
 
   --neu-shadow-raised:
-    6px 6px 12px rgba(0, 0, 0, 0.7),
-    -6px -6px 12px rgba(40, 40, 40, 0.15);
+    6px 6px 14px rgba(0, 0, 0, 0.8),
+    -6px -6px 14px rgba(55, 55, 55, 0.25);
   --neu-shadow-raised-sm:
-    3px 3px 6px rgba(0, 0, 0, 0.6),
-    -3px -3px 6px rgba(40, 40, 40, 0.12);
+    3px 3px 8px rgba(0, 0, 0, 0.7),
+    -3px -3px 8px rgba(55, 55, 55, 0.2);
   --neu-shadow-raised-lg:
-    8px 8px 16px rgba(0, 0, 0, 0.8),
-    -8px -8px 16px rgba(40, 40, 40, 0.18);
+    10px 10px 20px rgba(0, 0, 0, 0.9),
+    -10px -10px 20px rgba(55, 55, 55, 0.3);
   --neu-shadow-pressed:
-    inset 4px 4px 8px rgba(0, 0, 0, 0.7),
-    inset -4px -4px 8px rgba(40, 40, 40, 0.08);
+    inset 4px 4px 10px rgba(0, 0, 0, 0.8),
+    inset -4px -4px 10px rgba(55, 55, 55, 0.12);
   --neu-shadow-pressed-sm:
-    inset 2px 2px 4px rgba(0, 0, 0, 0.6),
-    inset -2px -2px 4px rgba(40, 40, 40, 0.06);
-  --neu-shadow-glow: 0 0 20px rgba(255, 255, 255, 0.03);
+    inset 2px 2px 6px rgba(0, 0, 0, 0.7),
+    inset -2px -2px 6px rgba(55, 55, 55, 0.1);
+  --neu-shadow-glow: 0 0 24px rgba(255, 255, 255, 0.04);
 
   --neu-radius-sm: 12px;
   --neu-radius-md: 16px;
@@ -147,17 +147,17 @@
   border-radius: var(--neu-radius-xl);
   border: none;
   box-shadow:
-    8px 8px 16px rgba(0, 0, 0, 0.8),
-    -8px -8px 16px rgba(40, 40, 40, 0.18),
-    0 0 20px rgba(255, 255, 255, 0.03);
+    10px 10px 20px rgba(0, 0, 0, 0.9),
+    -10px -10px 20px rgba(55, 55, 55, 0.3),
+    0 0 24px rgba(255, 255, 255, 0.04);
   transition: box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   overflow: hidden;
 }
 .neu-terminal:hover {
   box-shadow:
-    10px 10px 20px rgba(0, 0, 0, 0.85),
-    -10px -10px 20px rgba(40, 40, 40, 0.2),
-    0 0 40px rgba(255, 255, 255, 0.04);
+    12px 12px 24px rgba(0, 0, 0, 0.95),
+    -12px -12px 24px rgba(60, 60, 60, 0.35),
+    0 0 40px rgba(255, 255, 255, 0.05);
 }
 
 /* Terminal title bar */
