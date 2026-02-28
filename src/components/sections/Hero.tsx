@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { RotatingTypewriter } from '../ui/Typewriter';
 import TerminalWindow from '../ui/TerminalWindow';
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, Github } from 'lucide-react';
 
 const NAME_ART = [
   '╦ ╔═╗ ╔═╗ ╔═╗ ╔═╗       ╦ ╦ ╦ ╔═╗ ╔╦╗ ╔═╗ ╔╦╗',
@@ -87,9 +87,27 @@ export default function Hero() {
             </p>
           </motion.div>
 
-          {/* Rotating prompt */}
+          {/* GitHub link */}
           <motion.div
             variants={fadeIn(lineDelay(NAME_ART.length) + 0.8)}
+            initial="hidden"
+            animate="visible"
+            className="mb-6"
+          >
+            <a
+              href="https://github.com/Wisyle"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="neu-badge inline-flex items-center gap-2 text-sm hover:text-white transition-colors"
+            >
+              <Github size={16} />
+              <span className="font-mono">@Wisyle</span>
+            </a>
+          </motion.div>
+
+          {/* Rotating prompt */}
+          <motion.div
+            variants={fadeIn(lineDelay(NAME_ART.length) + 1.1)}
             initial="hidden"
             animate="visible"
           >
