@@ -67,7 +67,7 @@ export default function Contact() {
 
           {/* CTA */}
           <motion.a
-            href="mailto:robert5560newton@gmail.com"
+            href="mailto:iamdecatalyst24@gmail.com"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             className="inline-flex items-center gap-2 px-8 py-3.5 bg-white text-neu-base font-mono font-semibold text-sm tracking-wider uppercase rounded-xl shadow-[3px_3px_6px_rgba(0,0,0,0.6),-3px_-3px_6px_rgba(40,40,40,0.12),0_0_20px_rgba(255,255,255,0.08)] hover:shadow-[3px_3px_6px_rgba(0,0,0,0.6),-3px_-3px_6px_rgba(40,40,40,0.12),0_0_30px_rgba(255,255,255,0.12)] transition-shadow"

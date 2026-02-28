@@ -11,5 +11,5 @@ export const socials: SocialLink[] = [
   { id: 'instagram', label: 'Instagram', url: 'https://instagram.com/iamdecatalyst', icon: 'instagram' },
   { id: 'telegram', label: 'Telegram', url: 'https://t.me/iamdecatalyst', icon: 'send' },
   { id: 'reddit', label: 'Reddit', url: 'https://reddit.com/u/iamdecatalyst', icon: 'message-circle' },
-  { id: 'email', label: 'Email', url: 'mailto:robert5560newton@gmail.com', icon: 'mail' },
+  { id: 'email', label: 'Email', url: 'mailto:iamdecatalyst24@gmail.com', icon: 'mail' },
 ];
