@@ -104,18 +104,18 @@ export default function About() {
               <div key={i} className="mb-0.5">
                 {line.type === 'prompt' ? (
                   <span>
-                    <span className="text-white/60">$</span>{' '}
+                    <span className="text-white/80">$</span>{' '}
                     <span className="text-white">{line.text.slice(2)}</span>
                   </span>
                 ) : line.type === 'divider' ? (
-                  <span className="text-neutral-700">{line.text}</span>
+                  <span className="text-neutral-600">{line.text}</span>
                 ) : (
-                  <span className="text-neutral-400">{line.text}</span>
+                  <span className="text-neutral-300">{line.text}</span>
                 )}
               </div>
             ))}
             {visibleLines < terminalLines.length && (
-              <span className="animate-blink text-white/60">_</span>
+              <span className="animate-blink text-white/80">_</span>
             )}
           </div>
         </TerminalWindow>
@@ -132,7 +132,7 @@ export default function About() {
           <h2 className="font-mono font-bold text-2xl tracking-wider uppercase text-white mb-2">
             About
           </h2>
-          <p className="text-neutral-500 text-sm">
+          <p className="text-neutral-400 text-sm">
             Building an empire, one system at a time.
           </p>
         </motion.div>
@@ -148,7 +148,7 @@ export default function About() {
               className="neu-tile p-5"
             >
               <AnimatedCounter target={stat.value} suffix={stat.suffix} />
-              <p className="text-neutral-500 text-xs font-mono uppercase tracking-wider mt-2">
+              <p className="text-neutral-400 text-xs font-mono uppercase tracking-wider mt-2">
                 {stat.label}
               </p>
             </motion.div>

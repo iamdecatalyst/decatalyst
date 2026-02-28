@@ -8,8 +8,8 @@ export default function Experience() {
       <TerminalWindow title="git log --oneline">
         <div className="font-mono text-sm">
           {/* Git log header */}
-          <div className="text-neutral-600 text-xs mb-4">
-            <span className="text-white/60">$</span> git log --oneline --graph career
+          <div className="text-neutral-500 text-xs mb-4">
+            <span className="text-white/80">$</span> git log --oneline --graph career
           </div>
 
           <div className="space-y-6">
@@ -28,7 +28,7 @@ export default function Experience() {
                     className={`w-3 h-3 rounded-full ${
                       entry.current
                         ? 'bg-white shadow-[0_0_12px_rgba(255,255,255,0.3)]'
-                        : 'bg-neutral-600'
+                        : 'bg-neutral-500'
                     }`}
                   />
                   {i < experience.length - 1 && (
@@ -39,18 +39,18 @@ export default function Experience() {
                 {/* Commit info */}
                 <div className="pb-2">
                   <div className="flex items-center gap-3 mb-1">
-                    <span className="text-white/70 text-xs">{entry.current ? 'HEAD ->' : `~${i}`}</span>
-                    <span className="text-neutral-500 text-xs font-mono">
+                    <span className="text-white/80 text-xs">{entry.current ? 'HEAD ->' : `~${i}`}</span>
+                    <span className="text-neutral-400 text-xs font-mono">
                       {entry.year}
                     </span>
                   </div>
                   <h3 className="font-mono font-bold text-white text-base">
                     {entry.title}
                   </h3>
-                  <p className="text-neutral-500 text-sm mt-0.5">
+                  <p className="text-neutral-400 text-sm mt-0.5">
                     {entry.company}
                   </p>
-                  <p className="text-neutral-600 text-sm leading-relaxed mt-2">
+                  <p className="text-neutral-400 text-sm leading-relaxed mt-2">
                     {entry.description}
                   </p>
                 </div>

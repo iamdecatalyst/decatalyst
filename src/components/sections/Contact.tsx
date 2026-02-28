@@ -26,16 +26,16 @@ export default function Contact() {
     <div className="max-w-2xl mx-auto">
       <TerminalWindow title="ssh connect@decatalyst">
         <div className="text-center">
-          <div className="font-mono text-sm text-neutral-600 mb-6">
-            <span className="text-white/60">$</span> ssh connect@decatalyst.com
+          <div className="font-mono text-sm text-neutral-500 mb-6">
+            <span className="text-white/80">$</span> ssh connect@decatalyst.com
             <br />
-            <span className="text-neutral-500">Connection established.</span>
+            <span className="text-neutral-400">Connection established.</span>
           </div>
 
           <h2 className="font-mono font-bold text-2xl tracking-wider uppercase text-white mb-2">
             Establish Connection
           </h2>
-          <p className="text-neutral-500 text-sm mb-10">
+          <p className="text-neutral-400 text-sm mb-10">
             Let's build something that matters.
           </p>
 
@@ -55,7 +55,7 @@ export default function Contact() {
                     transition={{ delay: i * 0.08, type: 'spring', stiffness: 200 }}
                     whileHover={{ y: -4, scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="neu-tile w-14 h-14 flex items-center justify-center text-neutral-500 hover:text-white !rounded-2xl"
+                    className="neu-tile w-14 h-14 flex items-center justify-center text-neutral-400 hover:text-white !rounded-2xl"
                     title={social.label}
                   >
                     {Icon && <Icon size={20} />}
@@ -76,7 +76,7 @@ export default function Contact() {
             Get in Touch
           </motion.a>
 
-          <p className="mt-12 font-serif italic text-neutral-600 text-sm">
+          <p className="mt-12 font-serif italic text-neutral-500 text-sm">
             "Ad astra per aspera"
           </p>
 

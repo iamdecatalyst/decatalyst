@@ -13,7 +13,7 @@ export default function Skills() {
       <TerminalWindow title="ls -la ~/skills/">
         {/* Category tabs as directory listing */}
         <div className="font-mono text-sm mb-6">
-          <div className="text-neutral-600 mb-2">drwxr-xr-x  4 isaac vylth  4096 Feb 27 00:00 .</div>
+          <div className="text-neutral-500 mb-2">drwxr-xr-x  4 isaac vylth  4096 Feb 27 00:00 .</div>
           <div className="flex flex-wrap gap-2">
             {skillCategories.map((cat) => (
               <button
@@ -24,7 +24,7 @@ export default function Skills() {
                   activeCategory === cat.id && 'active'
                 )}
               >
-                <span className="text-white/60">d</span> {cat.label.toLowerCase()}/
+                <span className="text-white/80">d</span> {cat.label.toLowerCase()}/
               </button>
             ))}
           </div>
@@ -40,7 +40,7 @@ export default function Skills() {
             transition={{ duration: 0.3 }}
             className="font-mono text-sm"
           >
-            <div className="text-neutral-600 text-xs mb-3">
+            <div className="text-neutral-500 text-xs mb-3">
               total {current.skills.length} items
             </div>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2">
@@ -61,8 +61,8 @@ export default function Skills() {
 
         {/* Language breakdown */}
         <div className="mt-8 pt-6 border-t border-white/[0.04]">
-          <div className="text-neutral-600 font-mono text-xs mb-4">
-            <span className="text-white/60">$</span> cat primary_languages.conf
+          <div className="text-neutral-500 font-mono text-xs mb-4">
+            <span className="text-white/80">$</span> cat primary_languages.conf
           </div>
           <div className="grid sm:grid-cols-3 gap-3">
             {[
@@ -75,7 +75,7 @@ export default function Skills() {
                 className="neu-tile p-4"
               >
                 <p className="font-mono font-bold text-white text-base mb-1">{item.lang}</p>
-                <p className="text-neutral-500 text-xs">{item.desc}</p>
+                <p className="text-neutral-400 text-xs">{item.desc}</p>
               </div>
             ))}
           </div>

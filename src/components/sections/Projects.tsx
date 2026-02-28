@@ -42,7 +42,7 @@ function ProjectCard({ project, onClick }: { project: Project; onClick: () => vo
             )}
           />
         </div>
-        <p className="text-neutral-400 text-sm mb-4 line-clamp-2">
+        <p className="text-neutral-300 text-sm mb-4 line-clamp-2">
           {project.tagline}
         </p>
         <div className="flex flex-wrap gap-1.5">
@@ -83,14 +83,14 @@ function ProjectDetail({ project, onClose }: { project: Project; onClose: () => 
               {project.name}
             </h3>
             {project.codename && project.codename !== project.name && (
-              <p className="font-mono text-sm text-neutral-500 mt-1">
+              <p className="font-mono text-sm text-neutral-400 mt-1">
                 Codename: {project.codename}
               </p>
             )}
           </div>
           <button
             onClick={onClose}
-            className="text-neutral-500 hover:text-white transition-colors p-1"
+            className="text-neutral-400 hover:text-white transition-colors p-1"
           >
             <X size={20} />
           </button>
@@ -101,21 +101,21 @@ function ProjectDetail({ project, onClose }: { project: Project; onClose: () => 
         </p>
 
         <div className="mb-6">
-          <p className="font-mono text-xs uppercase tracking-wider text-neutral-500 mb-3">
+          <p className="font-mono text-xs uppercase tracking-wider text-neutral-400 mb-3">
             Highlights
           </p>
           <div className="space-y-2">
             {project.highlights.map((h) => (
               <div key={h} className="flex items-center gap-2">
                 <div className="w-1.5 h-1.5 rounded-full bg-white/30" />
-                <span className="text-neutral-400 text-sm">{h}</span>
+                <span className="text-neutral-300 text-sm">{h}</span>
               </div>
             ))}
           </div>
         </div>
 
         <div className="mb-6">
-          <p className="font-mono text-xs uppercase tracking-wider text-neutral-500 mb-3">
+          <p className="font-mono text-xs uppercase tracking-wider text-neutral-400 mb-3">
             Stack
           </p>
           <div className="flex flex-wrap gap-2">
@@ -165,13 +165,13 @@ export default function Projects() {
   return (
     <div>
       <div className="mb-8">
-        <div className="font-mono text-sm text-neutral-600 mb-4">
-          <span className="text-white/60">$</span> tree ~/projects/
+        <div className="font-mono text-sm text-neutral-500 mb-4">
+          <span className="text-white/80">$</span> tree ~/projects/
         </div>
         <h2 className="font-mono font-bold text-2xl tracking-wider uppercase text-white mb-2">
           The Ecosystem
         </h2>
-        <p className="text-neutral-500 text-sm">
+        <p className="text-neutral-400 text-sm">
           16+ interconnected systems. Click to explore.
         </p>
       </div>
