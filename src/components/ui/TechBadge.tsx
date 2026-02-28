@@ -1,4 +1,4 @@
-import { getTechIcon } from '../../lib/techIcons';
+import { getTechIcon, isDarkIcon } from '../../lib/techIcons';
 
 interface TechBadgeProps {
   name: string;
@@ -14,7 +14,7 @@ export default function TechBadge({ name, className = '' }: TechBadgeProps) {
         <img
           src={icon}
           alt=""
-          className="w-3.5 h-3.5 mr-1.5 inline-block"
+          className={`w-3.5 h-3.5 mr-1.5 inline-block ${isDarkIcon(name) ? 'invert brightness-200' : ''}`}
           loading="lazy"
         />
       )}

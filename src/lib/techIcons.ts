@@ -36,6 +36,13 @@ const iconMap: Record<string, string> = {
   'PowerShell': `${BASE}/powershell/powershell-original.svg`,
 };
 
+// Icons that are dark/black and need inversion on dark backgrounds
+const darkIcons = new Set(['Rust', 'Express', 'Bash']);
+
 export function getTechIcon(name: string): string | null {
   return iconMap[name] || null;
+}
+
+export function isDarkIcon(name: string): boolean {
+  return darkIcons.has(name);
 }

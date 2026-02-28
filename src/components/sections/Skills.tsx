@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { skillCategories } from '../../data/skills';
 import TerminalWindow from '../ui/TerminalWindow';
-import { getTechIcon } from '../../lib/techIcons';
+import { getTechIcon, isDarkIcon } from '../../lib/techIcons';
 import { cn } from '../../lib/utils';
 
 export default function Skills() {
@@ -54,7 +54,7 @@ export default function Skills() {
                   className="neu-badge neu-badge-3d text-xs justify-center py-2.5 px-3 gap-1.5"
                 >
                   {getTechIcon(skill.name) && (
-                    <img src={getTechIcon(skill.name)!} alt="" className="w-4 h-4" loading="lazy" />
+                    <img src={getTechIcon(skill.name)!} alt="" className={`w-4 h-4 ${isDarkIcon(skill.name) ? 'invert brightness-200' : ''}`} loading="lazy" />
                   )}
                   {skill.name}
                 </motion.div>
@@ -80,7 +80,7 @@ export default function Skills() {
               >
                 <div className="flex items-center gap-2 mb-1">
                   {getTechIcon(item.lang) && (
-                    <img src={getTechIcon(item.lang)!} alt="" className="w-5 h-5" loading="lazy" />
+                    <img src={getTechIcon(item.lang)!} alt="" className={`w-5 h-5 ${isDarkIcon(item.lang) ? 'invert brightness-200' : ''}`} loading="lazy" />
                   )}
                   <p className="font-mono font-bold text-white text-base">{item.lang}</p>
                 </div>
